@@ -1,0 +1,140 @@
+:root {
+    --verde: #8DB600;
+    --azul: #7AB3C6;
+    --amarelo: #DFC900;
+    --cinza: #ACACAC;
+}
+
+@font-face {
+    font-family: Jakarts;
+    src: url(../src/font/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf);
+}
+
+html {
+    /* fazendo com que a imagem cubra 100% do fundo */
+    min-height: 100%;
+}
+
+body {
+    background-image: url(../src/img/naom_5f329a6e0b969.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.boxpai{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    transform: scale(0.8);
+}
+.boxfilho{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    width: fit-content;
+    height: fit-content;
+    padding: 29px;
+    margin-left: 5%;
+    font-family: Jakarts;
+}
+.boxlogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.boxlogin h3{
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 27px;
+}
+.inputbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.inputbox input{
+    width: 529px;
+    height: 65px;
+    border: black solid 0.5px;
+    color: var(--cinza);
+    border-radius: 10px;
+    padding-left: 22px;
+    font-family: inherit;
+    font-weight: 400;
+    color: black;
+    font-size: 20px;
+}
+input::placeholder{
+    font-family: Jakarts;
+    font-weight: 400;
+    font-size: 18px;
+}
+.inputbox2{
+    padding-top: 22px;
+}
+.boxfilho2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 22px;
+    padding-bottom: 25px;
+    font-size: 15px;
+}
+.check{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.check h3{
+    text-decoration: none;
+    padding-left: 5px;
+}
+.checkbox{
+    width: 18px;
+    height: 18px;
+    border: 0.5px solid black;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.boxbotao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 66px;
+}
+.boxbotao button{
+    width: 529.73px;
+    height: 65.36px;
+    background-color: var(--verde);
+    color: black;
+    font-size: 25px;
+    font-weight: 500;
+    border-radius: 10px;
+    border: var(--verde);
+    cursor: pointer;
+}
+.boxfilho3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    margin-bottom: 74.60px;
+}
+.Registrar{
+    color: var(--azul);
+    font-weight: 700;
+    padding-left: 5px;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
