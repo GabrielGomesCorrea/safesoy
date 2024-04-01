@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+* {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+}
+.home {
+    width: 100%;
+    height: 695px;
+    background-image: url(fundo.png);
+}
+.menu {
+    background-color: rgba(248, 251, 239, 0.4);
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+.logo {
+    opacity: 1;
+    display: flex;
+    height: 70px;
+}
+.logosoy {
+    width: 100px;
+    height: 100px;
+}
+.safe{
+    color: #8DB600;
+}
+.soy{
+    color: #DFC900;
+}
+.titulo{
+    align-self: center;
+}
+.links{
+    display: flex;
+    align-items: center;
+}
+.link{
+    margin: 30px;
+    text-decoration: none;
+    color: #14282E;
+    font-weight: 600;
+}
+.botao{
+    border: #8DB600 solid;
+    background-color: #8DB600;
+    border-radius: 10px;
+    color: #F8FBEF;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+.botao:hover{
+    background-color: #8cb60098;
+    border: #8cb60098 solid;
+}
+.projeto{
+    display: flex;
+    justify-content: center;
+    height: 600px;
+}
+.sobre{
+    width: 700px;
+    height: 340px;
+    background-color: rgba(248, 251, 239, 0.9);
+    margin: auto;
+    border-radius: 10px;
+}
+.texto{
+    font-size: 40px;
+    margin: 30px;
+    font-weight: 700;
+}
+.princi{
+    color: #8DB600;
+}
+.linha{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+.li{
+    width: 400px;
+    height: 5px;
+    background-color: #DFC900;
+    border: #DFC900 solid;
+}
