@@ -1,13 +1,8 @@
 @font-face {
     font-family: Jakarts;
-    src: url(../Sprint2/imagens/PlusJakartaSans-VariableFont_wght.ttf);
+    src: url(../src/font/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf);
 }
 
-.caixa {
-    border-radius: 5px;
-    width: 1440px;
-    height: 720px;
-}
 
 .one_page {
     
@@ -160,6 +155,18 @@
     align-items: start;
     grid-column: 1;
 }
+
+    .divlogo {
+        width: 720px;
+        height: 720px;
+        background-color: white;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: start;
+        grid-column: 1;
+    }
 
 
 .titulo3 {
