@@ -1,199 +1,70 @@
+:root {
+    --verde: #8DB600;
+    --azul: #7AB3C6;
+    --amarelo: #DFC900;
+    --cinza: #ACACAC;
+}
+
 @font-face {
     font-family: Jakarts;
     src: url(../src/font/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf);
 }
 
-
-.one_page {
-    
+.containerpai {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-
-}
-
-.container {
-    width: 1440px;
-    height: 720px;
-    margin: auto;
-    background-color: white;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 30px; 
-}
-
-.container_imagem {
-    width: 590px; 
-    height: 671px; 
-    overflow: hidden;
-    border-radius: 5%;
-}
-
-.filho {
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start; 
-}
-
-.imagem {
-    width: 100%; 
-    height: auto; 
-    display: block; 
-}
-
-
-.titulo {
-    font-size: 80px;
-    font-family: Jakarts;
-
-    grid-column: 2;
-    width: 450;
-    height: 88;
-}
-
-.texto {
-    font-size: 170%;
-    font-family: Jakarts;
-    grid-column: 2;
-    width: 720px;
-    height: 319px;
-}
-
-/* ----------------------------------------------------------------------------------------------------------------------------- */
-
-.container2 {
-    width: 1440px;
-    height: 720px;
-    margin: auto;
-    background-color: #B8B254;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    
-    grid-template-columns: repeat(2, 1fr);
-    /* grid-gap: 30px; */
-}
-
-.imagem2 {
-    width: 720px;
-    height: 720px;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    align-items: end;
-    grid-column: 2;
-}
-
-
-.titulo2 {
-    font-size: 60px;
-    font-family: Jakarts;
-    grid-column: 2;
-    width: 450;
-    height: 88;
-    color: white;
-    padding: 20px 
-    ;
-
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: space-evenly; */
-    /* align-items: center; */
-    grid-column: 1;
-    
-}
-.texto2 {
-    font-size: 170%;
-    font-family: Jakarts;
-    grid-column: 2;
-    width: 720px;
-    height: 319px;
-    color: white;
-
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: space-evenly; */
-    /* align-items: center; */
-    grid-column: 1;
-    
-}
-
-/* ----------------------------------------------------------------------------------------------------------------------------------------- */
-
-.container3 {
-    width: 1440px;
-    height: 720px;
-    margin: auto;
-    background-color: #7AB3C6;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    
-    grid-template-columns: repeat(2, 1fr);
-    /* grid-gap: 30px; */
-}
-
-.imagem3 {
-    width: 720px;
-    height: 720px;
-    background-color: white;
-
-    /* display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    grid-column: 1; */
-}
-
-    .divlogo {
-        width: 720px;
-        height: 720px;
-        background-color: white;
-
-        align-items: center;
-    }
-
-
-.titulo3 {
-    font-size: 60px;
-    font-family: Arial, Helvetica, sans-serif;
-    grid-column: 2;
-    width: 450;
-    height: 88;
-    color: white;
-    padding: 30px;
-
-    display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    
+    font-family: Jakarts;
 }
-.texto3 {
-    font-size: 170%;
-    font-family: Arial, Helvetica, sans-serif;
-    grid-column: 2;
-    width: 720px;
-    height: 319px;
-    color: white;
-    
+.imagem img {
+    width: 466px;
+    height: 671px;
+    border-radius: 20px 20px 20px 20px;
+    margin: 117px 89px 82px 146px;
+}
+.projeto h1 {
+    font-weight: 400;
+    font-size: 55px;
+    margin-bottom: 91px;
+}
 
+.projeto .Safe {
+    color: var(--verde);
+    font-weight: 900;
+    font-size: 55px;
+}
+
+.projeto .Soy {
+    color: var(--amarelo);
+    font-size: 55px;
+    font-weight: 900;
+}
+
+.projeto p {
+    text-align: left;
+    font-weight: 400;
+    font-size: 25px;
+    margin-right: 83px;
+}
+.tempUmidade{
     display: flex;
-    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-right: 150px;
+    margin-top: 84px;
+}
+.temperatura{
+    display: flex;
     justify-content: start;
     align-items: center;
-    
+    font-size: 30px;
+    font-weight: 800;
+}
+.umidade{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 800;
+    padding-left: 44px;
 }

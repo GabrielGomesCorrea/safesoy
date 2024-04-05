@@ -1,34 +1,88 @@
 <!DOCTYPE html>
 <html lang="ptbr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SafeSoy</title>
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/sobrenos.css">
 </head>
+
 <body>
-    <section class="home">
+    <div class="background">
         <header class="menu">
             <div class="logo">
-                <img src="src/img/logo.png" alt="" class="logosoy">
-                <h1 class="titulo"><span class="safe">Safe</span><span class="soy">Soy</span></h1>
+                <img src="src/img/Logo.svg" alt="" class="logosoy">
             </div>
             <div class="links">
-                <a class="link um" href="">Sobre Nós</a>
-                <a class="link dois" href="">Nosso Projeto</a>
-                <a class="link tres" href="">Contato</a>
-                <button class="link botao">Login</button>
+                <div class="link1">
+                    <a class="link" href="">Sobre Nós</a>
+                </div>
+                <div class="link2">
+                    <a class="link" href="#ancora_sobrenos">Nosso Projeto</a>
+                </div>
+                <div class="link3">
+                    <a class="link" href="">Contato</a>
+                </div>
+            </div>
+            <div class="botao">
+                <button onclick="window.location.href = 'Login.html'">Login</button>
             </div>
         </header>
-        <div class="projeto">
-            <div class="sobre">
-                <p class="texto"><span class="princi">Economizando & Analisando</span>, sem imprevistos</p>
-                <div class="linha">
-                    <hr class="li">
+
+        <section class="caixa">
+            <div class="conteudos">
+                <article class="texto1">
+                    <h1><span class="corTexto">Economizando</span> &
+                        <span class="corTexto">Analisando</span>, sem imprevistos.
+                    </h1>
+                </article>
+
+                <div class="boxlinha">
+                    <div class="linha"></div>
                 </div>
-                <p class="texto">Até <span class="princi">25% </span>de <span class="princi">Economia nos Defensivos Agrícolas</span></p>
+
+                <article class="texto2">
+                    <h1>Até <span class="corTexto">25%</span class="corTexto"> de <span class="corTexto">Economia</span>
+                        nos
+                        <span class="corTexto">Defensivos</span><span class="corTexto">Agricolas</span>
+                    </h1>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
+
+    <div id="ancora_sobrenos"></div>
+    <div class="containerpai">
+        <aside class="imagem">
+            <img src="src/img/Imagem_segurandoplanta.jpg" alt="">
+        </aside>
+
+        <section class="projeto">
+            <h1>Projeto <span class="Safe">Safe</span><span class="Soy">Soy</span></h1>
+
+            <p>A defesa sanitária vegetal é essencial para proteger a
+                agricultura brasileira e seus recursos naturais contra a
+                entrada, estabelecimento e disseminação de pragas que
+                têm impacto econômico e ambiental significativo. Nesse
+                contexto, diversos projetos e estratégias são desenvolvidos
+                para prevenir e controlar essas ameaças.
+                Um dos nossos projetos relevantes é o monitoramento para o controle e erradicação de pragas presentes,
+                para isso exploramos os principais requisitos para a proliferação de pragas, sendo eles:</p>
+
+            <div class="tempUmidade">
+                <div class="temperatura">
+                    <img src="src/img/vector_temperatura.svg" alt="Temperatura">
+                    <h2>TEMPERATURA</h2>
+                </div>
+                <div class="umidade">
+                    <img src="src/img/vector_umidade.svg" alt="Umidade">
+                    <h2>UMIDADE</h2>
+                </div>
+            </div>
+    </div>
 </body>
+
 </html>
