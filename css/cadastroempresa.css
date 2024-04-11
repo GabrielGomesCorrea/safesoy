@@ -20,7 +20,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    transform: scale(0.9);
+    transform: scale(0.89);
 }
 .div_principal{
     width: 100vw;
@@ -38,7 +38,7 @@ body {
     width: fit-content;
     height: fit-content;
     padding: 29px;
-    margin-left: 5%;
+    margin-left: -100px;
     font-family: Jakarts;
 }
 .boxlogo{
