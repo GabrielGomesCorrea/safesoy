@@ -3,18 +3,20 @@
     --azul: #7AB3C6;
     --amarelo: #DFC900;
     --cinza: #ACACAC;
+    --amarelo_escuro: #B8B254;
 }
 
 @font-face {
     font-family: Jakarts;
     src: url(../src/font/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf);
 }
-
+/* Css do Projeto */
 .containerpai {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     font-family: Jakarts;
+    margin-bottom: 146px;
 }
 .imagem img {
     width: 466px;
@@ -45,6 +47,7 @@
     font-weight: 400;
     font-size: 25px;
     margin-right: 83px;
+    line-height: 32px;
 }
 .tempUmidade{
     display: flex;
@@ -67,4 +70,94 @@
     font-size: 30px;
     font-weight: 800;
     padding-left: 44px;
+}
+
+/* Css do Grupo de estudantes */
+
+.boxestudantes{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.boxtextos{
+    width: 50%;
+    height: 100%;
+    color: white;
+    background-color:var(--amarelo_escuro);
+}
+.textos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.textos h1{
+    width: 486px;
+    font-weight: 900;
+    font-size: 50px;
+    margin-top: 59px;
+    margin-bottom: 69px;
+    margin-right: 122px;
+    line-height: 63px;
+}
+.textos p{
+    width: 70%;
+    height: 304px;
+    font-size: 30px;
+    font-weight: 300;
+    margin-right: 65px;
+    line-height: 38px;
+}
+.imgestudantes{
+    width: 50%;
+    height: 100%;
+}
+.imgestudantes img{
+    width: 755px;
+    height: 730px;
+    object-fit: cover;
+}
+
+/* css da faculdade */
+.boxfaculdade{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.boxtextosF{
+    height: 100%;
+    width: 50%;
+    background-color: #7AB3C6;
+    color: white;
+}
+.textosf{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.textosf h1{
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 63px;
+    width: 317px;
+    height: 188px;
+    margin-bottom: 85px;
+    margin-top: 63px;
+    margin-right: 276px ;
+}
+.textosf p{
+    font-size: 30px;
+    line-height: 38px;
+    width: 55%;
+    height: 190px;
+    font-weight: 300;
+    margin-right: 135px;
+}
+.imagemfaculdade img{
+    width: 702px;
+    height: fit-content;
+    object-fit: cover;
 }
