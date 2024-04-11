@@ -114,8 +114,8 @@
     height: 100%;
 }
 .imgestudantes img{
-    width: 755px;
-    height: 730px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
