@@ -1,0 +1,98 @@
+:root {
+    --verde: #8DB600;
+    --azul: #7AB3C6;
+    --amarelo: #DFC900;
+    --cinza: #ACACAC;
+    --amarelo_escuro: #B8B254;
+}
+
+@font-face {
+    font-family: Jakarts;
+    src: url(../src/font/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.filho {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.faixa {
+    background-color: rgb(6, 207, 6);
+    width: 100%;
+    height: 350px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.texto {
+    font-family: Jakarts;
+    margin-left: 30px;
+    margin-right: 30px;
+    color: white;
+}
+
+
+.card{
+    background-color: white;
+    width: 266px;
+    height: 371px;
+    border-radius: 20px 20px 20px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    /* margin: 117px 89px 82px 146px; */
+    box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.56);
+        -webkit-box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.56);
+        -moz-box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.56);
+
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.card2{
+    background-color: rgb(255, 0, 0);
+    width: 366px;
+    height: 371px;
+    border-radius: 20px 20px 20px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    /* margin: 117px 89px 82px 146px; */
+    box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.56);
+        -webkit-box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.56);
+        -moz-box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.56);
+}
+
+.botao {
+    background-color: white;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.detalhes {
+    width: 80%;
+    height: 400px;
+    background-color: rgb(153, 153, 153);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
