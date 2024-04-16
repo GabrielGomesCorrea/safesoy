@@ -19,10 +19,14 @@
 
             <div class="boxlogin">
                 <h3>Faça seu login</h3>
+
                 <div class="inputbox">
-                    <input type="text" placeholder="RF ou Email" class="input">
+                    <input id="input_rf" type="number" placeholder="RF ou Email" class="input" maxlength="6">
+                    <div id="div_rf"></div>
+
                     <div class="inputbox2">
-                        <input type="password" placeholder="Senha" class="input">
+                        <input id="input_senha" type="password" placeholder="Senha" class="input">
+                        <div id="div_senha"></div>
                     </div>
                 </div>
             </div>
@@ -35,15 +39,15 @@
             </div>
 
             <div class="boxbotao">
-                <button onclick="" class="button">Login</button>
+                <button onclick="Login()" class="button">Login</button>
             </div>
+            <div id="div_erro"></div>
 
             <div class="boxfilho3">
                 <h6>Não tem uma conta?</h6>
-                <a href="AncoraRegistro.html" class="Registrar">Registrar</a> 
+                <a href="AncoraRegistro.html" class="Registrar">Registrar</a>
             </div>
         </div>
     </div>
 </body>
-
 </html>
