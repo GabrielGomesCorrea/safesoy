@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/sobrenos.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
@@ -18,19 +19,23 @@
                 <img src="src/img/Logo.svg" alt="" class="logosoy">
             </div>
             <div class="links">
-                <div class="link1">
-                    <a class="link" href="">Sobre Nós</a>
+                <div class="link4">
+                    <a class="link" href="#Calculadora">Calculadora</a>
                 </div>
-                <div class="link2">
-                    <a class="link" href="#ancora_sobrenos">Nosso Projeto</a>
+                <div class="links">
+                    <div class="link1">
+                        <a class="link" href="#estudantes">Sobre Nós</a>
+                    </div>
+                    <div class="link2">
+                        <a class="link" href="#ancora_sobrenos">Nosso Projeto</a>
+                    </div>
+                    <div class="link3">
+                        <a class="link" href="#Contato">Contato</a>
+                    </div>
                 </div>
-                <div class="link3">
-                    <a class="link" href="">Contato</a>
+                <div class="botao">
+                    <button onclick="window.location.href = 'Login.html'">Login</button>
                 </div>
-            </div>
-            <div class="botao">
-                <button onclick="window.location.href = 'Login.html'">Login</button>
-            </div>
         </header>
 
         <section class="caixa">
@@ -85,7 +90,29 @@
             </div>
     </div>
 
-    <div class="boxestudantes">
+    <div id="Calculadora" class="boxcalculadora">
+        <div class="imgcalculadora">
+            <img src="src/img/foto calculadora.jpg" alt="Imagem de financias">
+        </div>
+
+        <div class="boxtextosC">
+            <div class="textosC">
+                <h1>Controle seus gastos</h1>
+                <p> Você investe tempo, esforço e recursos preciosos em suas plantações de soja, e cada centavo
+                    conta.
+                    maximize seus lucros na safra de soja com a Calculadora Financeira SafeSoy!</p>
+
+                <div class="botaoAncoCalc">
+                    <button onclick="">Testar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    </div>
+
+    <div id="estudantes" class="boxestudantes">
 
         <div class="boxtextos">
             <div class="textos">
@@ -102,7 +129,7 @@
 
     </div>
 
-    <div class="boxfaculdade">
+    <div id="faculdade" class="boxfaculdade">
 
         <div class="imagemfaculdade">
             <img src="src/img/sptech_logo_negativa_1 1.png" alt="Sptech Logo">
@@ -118,7 +145,7 @@
     </div>
 
     <footer>
-        <div class="footer">
+        <div id="Contato" class="footer">
             <div class="agencia">
                 <h1>Nossa agência</h1>
                 <div class="icones">
