@@ -7,38 +7,44 @@
     <link rel="stylesheet" href="css/dashboard_caio.css">
 </head>
 <body>
-    <div class="container">
-        <div class="background"></div>
-        <div class="faixa">
-            <h2 class="texto">Seja bem vindo de volta, Valter!</h2>
-            <h5 class="texto">Relatórios de monitoramento da data 09/04/2024</h5>
-        </div>
-            <!-- <h2 class="texto">Seja bem vindo de volta, Valter!</h2>
-            <h5 class="texto">Relatórios de monitoramento da data 09/04/2024</h5> -->
-        <br>
-        <div class="filho">
-            <div class="card" style="background-color: red;"> <!--card1-->
-                <img src="src/img/temp.png" alt="">
-                <p class="texto">Temperatura crítica:</p>
-                <p class="texto"><b>34°C</b></p>
+    <div class="background">
+        <header class="menu">
+            <div class="navbar">
+                <div class="espaco"></div>
+                <img src="src/img/Logo.svg" alt="" class="logo">
+                <img src="src/img/vector.svg" alt="" class="user">
             </div>
-            <div class="card2"> <!--card2-->
-                <img src="src/img/Vector (1).png" alt="">        
-                <p class="texto">Setores irregulares</p>
-                <p class="texto">X</p>
-                <button class="botao">Detalhes</button>
+        </header>
+        <div class="mensagem">
+            <div class="bloco1">
+                <h1 class="msg">Seja bem vindo de volta, Valter!</h1>
+                <h3 class="texto">Relatórios de monitoramento da data 09/04/2024</h3>
             </div>
-            <div class="card" style="background-color: red;"> <!--card3-->
-                <img src="src/img/umid.png" alt="">
-                <p class="texto">Umidade crítica:</p>
-                <p class="texto"><b>70%</b></p>
-            </div>
-        
-        </div>
-        <br>
-        <div class="detalhes">
-
         </div>
     </div>
+    <main>
+        <div class="alertas">
+            <div class="alerts">
+                <div class="temperatura">
+                    <img src="src/img/temp.png" alt="" class="temp">
+                    <p class="txt">Temperatura Crítica</p>
+                    <p class="txt">37ºC</p>
+                </div>
+                <div class="setores">
+                    <div class="set">
+                        <img src="src/img/Vector (1).png" alt="" class="sensor">
+                        <p class="txt">Setores Irregulares</p>
+                    <p class="txt">2</p>
+                    </div>
+                    <button class="botao">Ver Detalhes</button>
+                </div>
+                <div class="umidade">
+                    <img src="src/img/umid.png" alt="" class="umid">
+                    <p class="txt">Umidade Crítica</p>
+                    <p class="txt">92%</p>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
