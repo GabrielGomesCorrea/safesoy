@@ -32,7 +32,9 @@ html{
    justify-content: center;
    align-items: center;
 }
-
+.link:hover{
+    color: #8DB600;
+}
 .link{
     text-decoration: none;
     color: #14282E;
