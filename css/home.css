@@ -105,6 +105,9 @@ button:hover {
     width: 484.08px;
     border: solid 7px #F0E751;
 }
+.testar:hover{
+    background-color: #f3f3f3;
+}
 
 /* Css do footer */
 footer{
