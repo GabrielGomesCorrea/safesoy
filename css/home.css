@@ -32,7 +32,9 @@ html{
    justify-content: center;
    align-items: center;
 }
-
+.link:hover{
+    color: #8DB600;
+}
 .link{
     text-decoration: none;
     color: #14282E;
@@ -194,4 +196,16 @@ footer{
 .final h2{
     font-family: Jakarts;
     color: #ffff;
+}
+
+/* Css do ScrollBar */
+body::-webkit-scrollbar{
+    width: 10px;
+}
+body::-webkit-scrollbar-track{
+    background: white
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #8DB600;
+    border-radius: 10px;
 }
