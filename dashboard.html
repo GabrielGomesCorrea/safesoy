@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/dashboard_caio.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="background">
@@ -34,7 +35,7 @@
                     <div class="set">
                         <img src="src/img/Vector (1).png" alt="" class="sensor">
                         <p class="txt">Setores Irregulares</p>
-                    <p class="txt">2</p>
+                    <p class="txt">4</p>
                     </div>
                     <button class="botao">Ver Detalhes</button>
                 </div>
@@ -54,13 +55,81 @@
                     <h3>Umidade</h3>
                 </div>
                 <div class="secao" onclick="">
-                    <h3>Data: 09/04/2024</h3>
-                    <h3>2</h3>
-                    <h3>37ºC</h3>
-                    <h3>50%</h3>
+                    <h3 class="dt">Data: 26/04/2024</h3>
+                    <h3 class="num">5</h3>
+                    <h3 class="graus">39ºC</h3>
+                    <h3 class="porc">40%</h3>
+                </div>
+                <div class="secao" onclick="">
+                    <h3 class="dt">Data: 27/04/2024</h3>
+                    <h3 class="num">2</h3>
+                    <h3 class="graus">37ºC</h3>
+                    <h3 class="porc">50%</h3>
+                </div>
+                <div class="secao" onclick="">
+                    <h3 class="dt">Data: 28/04/2024</h3>
+                    <h3 class="num">6</h3>
+                    <h3 class="graus">25ºC</h3>
+                    <h3 class="porc">67%</h3>
+                </div>
+                <div class="secao" onclick="">
+                    <h3 class="dt">Data: 29/04/2024</h3>
+                    <h3 class="num">4</h3>
+                    <h3 class="graus">37ºC</h3>
+                    <h3 class="porc">92%</h3>
+                </div>
+            </div>
+        </div>
+        <div class="grafico">
+            <div class="metricas">
+                <div class="legenda">
+                    <h3>Data registrada</h3>
+                    <h3>Setores</h3>
+                    <h3>Temperatura</h3>
+                    <h3>Umidade</h3>
+                </div>
+                <div class="secao1" onclick="">
+                    <h3 class="dt">Data: 29/04/2024</h3>
+                    <h3 class="num">4</h3>
+                    <h3 class="graus">37ºC</h3>
+                    <h3 class="porc">92%</h3>
+                </div>
+                <div class="chart">
+                    <canvas id="myChart1" class="chart1"></canvas>
                 </div>
             </div>
         </div>
     </main>
 </body>
 </html>
+<script>
+    const ctx1 = document.getElementById('myChart1');
+
+    new Chart(ctx1, {
+    type: 'line',
+    data: {
+        labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+        datasets: [{
+        label: 'Temperatura',
+        data: [30, 29, 28, 25, 22, 23],
+        borderColor: 'rgb(255,0,0)',
+        backgroundColor: 'rgb(255,0,0)',
+        borderWidth: 1
+        },
+        {
+        label: 'Umidade',
+        data: [80, 82, 80, 85, 80, 83],
+        borderColor: 'rgb(0,0,255)',
+        backgroundColor: 'rgb(0,0,255)',
+        borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+        y: {
+            beginAtTweny: true
+        }
+        }
+    }
+    });
+</script>
