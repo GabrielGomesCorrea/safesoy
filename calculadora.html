@@ -1,37 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SafeSoy</title>
 </head>
-<body>
-    <div class="logo" style="width: auto; height: auto; position: absolute; top: -35px; left: -50px;">
-    <img src="src/img/Logo.svg" alt="" style="width: 320px; height: 150px;" > </div>
-    <div class="corpo" style="margin-top: 80px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-    <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Calculadora / Simulador Financeiro SafeSoy</h1>
 
-    Insira o nome da sua empresa:
-   <br>
-    <input type="text" id="input_nome" placeholder="digite seu nome: " style="width: 185px;">
-    <br>
-    <br>
-    Insira o gasto médio mensal com defensivos agrícolas por 60 Kg de soja: <!--Aproximadamente 30,63 por 60 quilos-->
-   <br>
-    R$ <input type="number" id="input_gasto" placeholder="Digite seus gastos: ">
-    <br>
-    <br>
-    Insira sua produção total de soja em toneladas:
-    <br>
-    <input type="number" id="input_producao" placeholder=" Quanto vc produziu: " style="width: 185px;">
-    Toneladas Aproximadamente 70928 toneladas por mês
-    <br>
-    <br>
-    <button onclick="simularEconomia()" style="width: 190px;">Simular Economia</button>
-    <br>
-    <div id="div_resultado"></div>
-</div>
+<body>
+    <header class="menu">
+        <div class="logo">
+            <img src="src/img/Logo.svg" alt="" class="logosoy">
+        </div>
+        <div class="links">
+            <div class="link4">
+                <a class="link" href="#Calculadora">Calculadora</a>
+            </div>
+            <div class="links">
+                <div class="link1">
+                    <a class="link" href="#estudantes">Sobre Nós</a>
+                </div>
+                <div class="link2">
+                    <a class="link" href="#ancora_sobrenos">Nosso Projeto</a>
+                </div>
+                <div class="link3">
+                    <a class="link" href="#Contato">Contato</a>
+                </div>
+            </div>
+            <div class="botao">
+                <button onclick="window.location.href = 'Login.html'">Login</button>
+            </div>
+    </header>
+
+    <div class="corpo"
+        style="margin-top: 80px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Calculadora / Simulador
+            Financeiro SafeSoy</h1>
+
+        <div class="box">
+            Insira o nome da sua empresa:
+            <br>
+            <input type="text" id="input_nome" placeholder="digite seu nome: " style="width: 185px;">
+            <br>
+            <br>
+            Insira o gasto médio mensal com defensivos agrícolas por 60 Kg de soja:
+            <!--Aproximadamente 30,63 por 60 quilos-->
+            <br>
+            R$ <input type="number" id="input_gasto" placeholder="Digite seus gastos: ">
+            <br>
+            <br>
+            Insira sua produção total de soja em toneladas:
+            <br>
+            <input type="number" id="input_producao" placeholder=" Quanto vc produziu: " style="width: 185px;">
+            Toneladas Aproximadamente 70928 toneladas por mês
+            <br>
+            <br>
+            <button onclick="simularEconomia()" style="width: 190px;">Simular Economia</button>
+            <br>
+            <div id="div_resultado"></div>
+        </div>
+    </div>
 </body>
+
 </html>
 <script>
 
@@ -43,7 +73,7 @@
 
         var kg = toneladas * 1000
 
-        gastoMes = ( kg / 60) * gastoMes;
+        gastoMes = (kg / 60) * gastoMes;
 
         var gastoAno = gastoMes * 12;
 

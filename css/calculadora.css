@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    font-family: Jakarts;
+}
+@font-face {
+    font-family: Jakarts;
+    src: url(../src/font/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf);
+}
+.logo{
+    margin-left: 31px;
+    margin-right: 180px;
+  }
