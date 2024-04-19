@@ -21,14 +21,24 @@
                 <h3>Faça seu login</h3>
 
                 <div class="inputbox">
-                    <input id="input_rf" type="number" placeholder="RF ou Email" class="input" maxlength="6">
-                    <div id="div_rf"></div>
+                    
+                    <div class="selectbox">
+                        <select class="select_fazendas">
+                            <option disabled selected>Escolha sua fazenda</option>
+                            <option value="">Fazenda Amaguí</option>
+                        </select>
+                    </div>
+
+                    <div class="inputbox1">
+                        <input id="input_rf" type="number" placeholder="RF ou Email" class="input" maxlength="6">
+                    </div>
 
                     <div class="inputbox2">
                         <input id="input_senha" type="password" placeholder="Senha" class="input">
-                        <div id="div_senha"></div>
                     </div>
+
                 </div>
+
             </div>
             <div class="boxfilho2">
                 <div class="check">
@@ -41,7 +51,6 @@
             <div class="boxbotao">
                 <button onclick="Login()" class="button">Login</button>
             </div>
-            <div id="div_erro"></div>
 
             <div class="boxfilho3">
                 <h6>Não tem uma conta?</h6>
@@ -50,4 +59,5 @@
         </div>
     </div>
 </body>
+
 </html>
