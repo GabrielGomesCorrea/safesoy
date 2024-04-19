@@ -45,6 +45,25 @@ body {
     justify-content: center;
     align-items: center;
 }
+.selectbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 23px;
+}
+.select_fazendas{
+    width: 529px;
+    height: 65px;
+    border: black solid 0.5px;
+    color: var(--cinza);
+    border-radius: 10px;
+    padding-left: 22px;
+    font-family: inherit;
+    font-weight: 400;
+    color: black;
+    font-size: 15px;
+    transform: scale(1);
+}
 .boxlogin h3{
     font-size: 20px;
     font-weight: 500;
