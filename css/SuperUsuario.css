@@ -100,10 +100,6 @@ html{
 }
 .conteudopainel{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-block-start: 28px;
 }
 .quatro{
     font-size: 50px;
@@ -118,7 +114,6 @@ html{
 /* Css do painel 2 */
 .paipainel2{
     height: 100vh;
-    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
