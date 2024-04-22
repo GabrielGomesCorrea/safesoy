@@ -218,12 +218,32 @@
     align-items: center;
     border-radius: 15px;
 }
+.chartjs{
+    justify-content: center;
+    display: flex;
+}
+.exp{
+    width: 170px;
+    text-align: center;
+}
+.exp h2{
+    font-size: 20px;
+    margin-top: 70px;
+}
+.slc{
+    background-color: #DFC900;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    justify-content: center;
+    font-size: 15px;
+}
 .chart{
     margin: 40px;
     width: 900px;
 }
-.chart1{
-    position: relative; 
-    height: 10px; 
-    width: 10px;
+.voltar{
+    width: 170px;
+    flex-direction: column;
 }
