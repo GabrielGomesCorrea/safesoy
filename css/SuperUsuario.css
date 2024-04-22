@@ -100,6 +100,9 @@ html{
 }
 .conteudopainel{
     display: flex;
+    margin: 50px;
+    align-items: center;
+    gap: 15px;
 }
 .quatro{
     font-size: 50px;
@@ -108,7 +111,7 @@ html{
 .funcionario{
     font-size: 30px;
     font-weight: 500;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 /* Css do painel 2 */
@@ -143,33 +146,34 @@ html{
     height: 100%;
     width: 100%;
 }
-.pessoas{
+
+.pessoa{
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin-top: 42px;
-    margin-bottom: 52px;
+    justify-content: space-around;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.funcionario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 .profile{
     width: 55px;
     height: 55px;
-    margin-left: 70px;
 }
-.nomepessoa{
-    flex-direction: column;
-    margin-left: 10px;
+.nome{
+    font-size: 15px;
 }
-.tipo{
-    margin-left: 135px;
-    display: flex;
+.cargo{
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    display: flex;
 }
 .dots{
-    margin-left: 200px;
-    padding-right: 90px ;
-}
-.dots img{
-    width:50px;
-    height: fit-content;
+    justify-content: center;
+    display: flex;
+    width: 115px;
 }
