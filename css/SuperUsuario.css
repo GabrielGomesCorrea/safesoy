@@ -102,6 +102,8 @@ html{
     display: flex;
     margin: 50px;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
     gap: 15px;
 }
 .quatro{
