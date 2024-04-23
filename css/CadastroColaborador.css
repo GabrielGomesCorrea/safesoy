@@ -27,7 +27,7 @@ body {
     display: flex;
     justify-content: start;
     align-items: center;
-    transform: scale(0.8);
+    transform: scale(0.7);
 }
 .boxfilho{
     display: flex;
@@ -68,7 +68,7 @@ body {
     color: black;
     font-size: 20px;
 }
-.inputbox1, .inputbox2, .inputbox3, .inputbox4, .inputbox5{
+.inputbox1, .inputbox2, .inputbox3, .inputbox4, .inputbox5, .inputbox6{
     padding: 10px;
 }
 input::placeholder{
