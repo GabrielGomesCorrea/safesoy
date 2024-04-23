@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/reset.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/Login/CadastroScript.js"></script>
     <title>Bem-vindo ao SafeSoy!</title>
 </head>
 
@@ -21,16 +23,9 @@
                 <h3>Faça seu login</h3>
 
                 <div class="inputbox">
-                    
-                    <div class="selectbox">
-                        <select class="select_fazendas">
-                            <option disabled selected>Escolha sua fazenda</option>
-                            <option value="">Fazenda Amaguí</option>
-                        </select>
-                    </div>
 
                     <div class="inputbox1">
-                        <input id="input_rf" type="number" placeholder="RF ou Email" class="input" maxlength="6">
+                        <input id="input_rf" type="text" placeholder="RF (Registro Funcionario)" class="input">
                     </div>
 
                     <div class="inputbox2">

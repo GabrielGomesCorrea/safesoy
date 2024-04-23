@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=, initial-scale=1.0">
     <link rel="stylesheet" href="css/CadastroColaborador.css">
     <link rel="stylesheet" href="css/reset.css">
+    <script src="js/Login/CadastroScript.js"></script>
     <title>Bem-vindo ao Registro!</title>
 </head>
 
@@ -21,6 +22,10 @@
                 <h3>Faça seu cadastro</h3>
                 <div class="inputbox">
 
+                    <div class="inputbox6">
+                        <input type="text" placeholder="Fazenda" class="input">
+                    </div>
+
                     <div class="inputbox1">
                         <input type="text" placeholder="Nome" class="input">
                     </div>
@@ -30,21 +35,21 @@
                     </div>
 
                     <div class="inputbox3">
-                        <input type="" placeholder="Email" class="input">
+                        <input type="" placeholder="Email" class="input" id="input_email">
                     </div>
 
                     <div class="inputbox4">
-                        <input type="password" placeholder="Senha" class="input">
+                        <input type="password" placeholder="Senha" class="input" id="input_senha">
                     </div>
 
                     <div class="inputbox5">
-                        <input type="password" placeholder="Confirmar Senha" class="input">
+                        <input type="password" placeholder="Confirmar Senha" class="input" id="input_ConfirmarSenha">
                     </div>
                 </div>
             </div>
 
             <div class="boxbotao">
-                <button onclick="" class="button">Cadastrar</button>
+                <button onclick="cadastro()" class="button">Cadastrar</button>
             </div>
 
             <div class="boxfilho3">
