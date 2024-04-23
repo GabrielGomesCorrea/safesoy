@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/reset.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Bem-vindo ao SafeSoy!</title>
 </head>
 
@@ -21,16 +22,10 @@
                 <h3>Faça seu login</h3>
 
                 <div class="inputbox">
-                    
-                    <div class="selectbox">
-                        <select class="select_fazendas">
-                            <option disabled selected>Escolha sua fazenda</option>
-                            <option value="">Fazenda Amaguí</option>
-                        </select>
-                    </div>
 
                     <div class="inputbox1">
-                        <input id="input_rf" type="number" placeholder="RF ou Email" class="input" maxlength="6">
+                        <input id="input_rf" type="number" placeholder="RF (Registro Funcionario)" class="input"
+                            maxlength="6">
                     </div>
 
                     <div class="inputbox2">
@@ -61,3 +56,30 @@
 </body>
 
 </html>
+
+<script>
+
+    var tentativas = 0
+    
+    function Login() {
+        var login = Number(input_rf.value)
+        var senha = Number(input_senha.value)
+
+        for (var index = 0; index < 4; index++) {
+
+            if (login != 1010 || senha != 12345) {
+                tentativas++
+                if (tentativas <= 3) {
+                    alert(`Tentativas restantes: ${tentativas}`)
+                    break
+                }
+            }
+            else {
+                window.location.replace("dashboard.html");
+            }
+        }
+        if (tentativas == 3) {
+            alert(`Acesso Bloqueado`)
+        }
+    }
+</script>
