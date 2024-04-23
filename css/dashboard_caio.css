@@ -248,4 +248,8 @@
     width: 170px;
     display: flex;
     flex-direction: column;
+    justify-content: end;
+}
+.voltar button{
+    
 }
