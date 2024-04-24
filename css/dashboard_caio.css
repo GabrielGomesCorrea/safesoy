@@ -143,14 +143,14 @@
 }
 
 .criticos{
-    height: 300px;
+    height: 350px;
     display: flex;
     justify-content: center;
     margin: 70px;
 }
 .lista{
     background-color: #ffffff;
-    height: 250px;
+    height: 310px;
     width: 100%;
     border: #DFC900 solid;
     border-radius: 20px;
@@ -194,8 +194,24 @@
     margin-left: 290px;
 }
 
+.historico{
+    margin: 20px;
+    text-align: center;
+}
+.historico button{
+    background-color: #DFC900;
+    border-radius: 5px;
+    padding: 10px;
+    border-width: 1px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.historico button:hover{
+    background-color: #d3be00;
+}
+
 .grafico{
-    height: 700px;
+    height: 650px;
     display: flex;
     justify-content: center;
     margin: 70px;
@@ -227,7 +243,7 @@
 }
 .exp h2{
     font-size: 20px;
-    margin-top: 70px;
+    margin-top: 90px;
 }
 .slc{
     background-color: #DFC900;
@@ -238,6 +254,10 @@
     justify-content: center;
     font-size: 15px;
     border: black solid;
+    border-width: 1px;
+}
+.slc:hover{
+    background-color: #d3be00;
 }
 .chart{
     margin: 40px;
@@ -248,7 +268,55 @@
     display: flex;
     flex-direction: column;
     justify-content: end;
+    align-items: center;
+}
+.msgalerts{
+    background-color: #e4e4e4;
+    height: 300px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: black solid;
+    border-width: 1px;
+    padding: 5px;
+    text-align: center;
+    overflow: auto;
+}
+.msgalerts::-webkit-scrollbar{
+    width: 5px;
+}
+.msgalerts::-webkit-scrollbar-track{
+    background: #e4e4e4;
+    border-radius: 5px;
+    
+}
+.msgalerts::-webkit-scrollbar-thumb{
+    background-color: #aaaaaa;
+    border-radius: 10px;
+}
+.msg p{
+    color: #000000;
+    border: #000000 solid;
+    border-width: 1px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.msg span{
+    color: #FF0000;
 }
 .voltar button{
-    
+    margin-bottom: 50px;
+    background-color: #DFC900;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 15px;
+    border: black solid;
+    border-width: 1px;
+}
+.voltar button:hover{
+    background-color: #d3be00;
 }
