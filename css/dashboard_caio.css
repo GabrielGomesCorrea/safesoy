@@ -259,6 +259,23 @@
 .slc:hover{
     background-color: #d3be00;
 }
+.botgrafico{
+    background-color: #DFC900;
+    width: 180px;
+    margin-top: 20px;
+    border: black solid;
+    border-width: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.botgrafico a{
+    text-decoration: none;
+    color: #000000;
+    font-size: 15px;
+}
+.botgrafico:hover{
+    background-color: #d3be00;
+}
 .chart{
     margin: 40px;
     width: 900px;
