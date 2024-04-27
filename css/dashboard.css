@@ -209,6 +209,10 @@
 .historico button:hover{
     background-color: #d3be00;
 }
+.historico a{
+    text-decoration: none;
+    color: #000000;
+}
 
 .grafico{
     height: 650px;

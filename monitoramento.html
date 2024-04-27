@@ -2,30 +2,36 @@
 <html>
 
 <head>
-    <title>Line Chart</title>
+    <title>Monitoramento</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
-    <style>
-        canvas {
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-    </style>
+    <link rel="stylesheet" href="css/monitoramento.css">
 </head>
 
 <body>
-    <div>
-        <h1>Sensor DHT 11 - Umidade</h1>
-        <section style="width:100%">
-            <canvas id="dht11Umidade"></canvas>
-        </section>
-        <h1>Sensor DHT 11 - Temperatura</h1>
-        <section style="width: 100%;">
-            <canvas id="dht11Temperatura"></canvas>
-        </section>
+    <div class="monitoramento">
+        <div class="safe">
+            <div class="titulo">
+                <img src="src/img/Logo.svg" alt="" class="logo">
+            </div>
+        </div>
+        <div class="botao">
+            <button class="bt"><a href="dashboard.html">Voltar</a></button>
+        </div>
+        <div class="graficos">
+            <h1>Sensor DHT 11 - Umidade</h1>
+            <section style="width:100%">
+                <canvas id="dht11Umidade"></canvas>
+            </section>
+            <h1>Sensor DHT 11 - Temperatura</h1>
+            <section style="width: 100%;">
+                <canvas id="dht11Temperatura"></canvas>
+            </section>
+        </div>
+    </div>
+
+    
     <script>
         /* -- dht11Umidade -- */
         var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
@@ -39,8 +45,8 @@
                     datasets: [{
                         label: 'Umidade',
                         type: 'line',
-                        borderColor: ['#45b3e7'],
-                        backgroundColor: ['#89cff0']
+                        borderColor: ['rgb(0,0,255)'],
+                        backgroundColor: ['rgb(0,0,255)']
                     }]
                 },
                 options: {
@@ -79,8 +85,8 @@
                     datasets: [{
                         label: "Temperatura",
                         type: 'line',
-                        borderColor: ['#ff3232'],
-                        backgroundColor: ['#ff7f7f']
+                        borderColor: ['rgb(255,0,0)'],
+                        backgroundColor: ['rgb(255,0,0)']
                     }]
                 },
                 options: {

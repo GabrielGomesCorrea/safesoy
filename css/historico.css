@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    font-family: Jakarts;
+}
+@font-face {
+    font-family: Jakarts;
+    src: url(../src/font/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf);
+}
+.background{
+    background-image: url(../src/img/fotobanner1.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+}
+.menu{
+    width: 100%;
+    height: 70px;
+    background-color: rgb(255, 255, 255, 0.6);
+}
+.navbar{
+    display: flex;
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
+}
+.espaco{
+    width: 50px;
+}
+.logo{
+    width: 190px;
+}
+.navbar button{
+    background-color: #8DB600;
+    border: #8DB600 solid;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+.navbar button:hover{
+    background-color: #82aa00;
+    border: #82aa00 solid;
+}
+.voltar{
+    text-decoration: none;
+    color: #F8FBEF;
+}
+
+.criticos{
+    height: 1px;
+    display: flex;
+    justify-content: center;
+    margin: 70px;
+}
+.lista{
+    position: relative;
+    top: -550px;
+    background-color: #ffffff;
+    height: 500px;
+    width: 100%;
+    border: #DFC900 solid;
+    border-radius: 20px;
+    border-width: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.56);
+        -webkit-box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.56);
+        -moz-box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.56);
+}
+.legenda{
+    background-color: #DFC900;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+.legenda h3{
+    color: black;
+}
+.secao{
+    background-color: #ffffff;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.secao:hover{
+    background-color: #efeeee;
+}
+.dt{
+    margin-left: 100px;
+}
+.num{
+    margin-left: 240px;
+}
+.graus{
+    margin-left: 290px;
+}
+.porc{
+    margin-left: 290px;
+}

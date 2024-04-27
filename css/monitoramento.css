@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    font-family: Jakarts;
+}
+@font-face {
+    font-family: Jakarts;
+    src: url(../src/font/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf);
+}
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.monitoramento{
+    margin: 30px;
+    background-color: #ffffff;
+    border: #DFC900 solid;
+    border-radius: 20px;
+    border-width: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.safe{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.titulo{
+    background-color: #DFC900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    width: 200px;
+    height: 80px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.logo{
+    width: 150px;
+}
+.botao{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+.bt{
+    margin-right: 50px;
+    background-color: #DFC900;
+    border: #000000 solid;
+    border-radius: 5px;
+    border-width: 1px;
+    cursor: pointer;
+}
+.bt:hover{
+    background-color: #d3be00;
+}
+.bt a{
+    text-decoration: none;
+    color: #000000;
+    font-size: 17px;
+}
+.graficos{
+    margin: 20px;
+}
