@@ -20,24 +20,25 @@
         <div class="corpo">
             <h1>Calculadora / Simulador Financeiro SafeSoy</h1>
             <div class="box">
+                <br>
                 Insira o nome da sua empresa:
                 <br>
-                <input type="text" id="input_nome" placeholder="digite seu nome: " style="width: 185px;">
+                <input class="input1" type="text" id="input_nome" placeholder="Digite seu nome: " style="width: 185px;">
                 <br>
                 <br>
                 Insira o gasto médio mensal com defensivos agrícolas por 60 Kg de soja:
                 <!--Aproximadamente 30,63 por 60 quilos-->
                 <br>
-                R$ <input type="number" id="input_gasto" placeholder="Digite seus gastos: ">
+                R$ <input class="input2" type="number" id="input_gasto" placeholder="Digite seus gastos: ">
                 <br>
                 <br>
                 Insira sua produção total de soja em toneladas:
+                <input class="input3" type="number" id="input_producao" placeholder=" Quanto vc produziu: " style="width: 185px;">
                 <br>
-                <input type="number" id="input_producao" placeholder=" Quanto vc produziu: " style="width: 185px;">
                 Toneladas Aproximadamente 70928 toneladas por mês
                 <br>
                 <br>
-                <button onclick="simularEconomia()" class="botao">Simular Economia</button>
+                <button onclick="simularEconomia()" class="botao"><b>Simular Economia</b></button>
                 <br>
                 <div id="div_resultado"></div>
             </div>

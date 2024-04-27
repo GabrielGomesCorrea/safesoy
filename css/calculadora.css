@@ -49,6 +49,7 @@ body{
 
 .botao{
     width: 100%;
+    height: 30px;
     background-color: #8DB600;
     border: none;
     border-radius: 10px;
@@ -57,3 +58,65 @@ body{
 .botao:hover{
     background-color: #7ca200;
 }
+
+.input1{
+    width: 100%;
+    height: 25px;
+    border: black solid 0.5px;
+    color: var(--cinza);
+    border-radius: 5px;
+    padding-left: 22px;
+    font-family: inherit;
+    font-weight: 400;
+    color: black;
+    font-size: 14px;
+    margin: 7px;
+}
+
+.input1::placeholder{
+    font-family: Jakarts;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.input2{
+    width: 60%;
+    height: 25px;
+    border: black solid 0.5px;
+    color: var(--cinza);
+    border-radius: 5px;
+    padding-left: 22px;
+    font-family: inherit;
+    font-weight: 400;
+    color: black;
+    font-size: 14px;
+    margin: 7px;
+
+}
+
+.input2::placeholder{
+    font-family: Jakarts;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.input3{
+    width: 100%;
+    height: 25px;
+    border: black solid 0.5px;
+    color: var(--cinza);
+    border-radius: 5px;
+    padding-left: 22px;
+    font-family: inherit;
+    font-weight: 400;
+    color: black;
+    font-size: 14px;
+    margin: 7px;
+}
+
+.input3::placeholder{
+    font-family: Jakarts;
+    font-weight: 400;
+    font-size: 14px;
+}
+
