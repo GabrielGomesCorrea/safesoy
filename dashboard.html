@@ -46,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <div class="criticos">
+        <div class="criticos" id="criticos">
             <div class="lista">
                 <div class="legenda">
                     <h3>Data registrada</h3>
@@ -72,7 +72,7 @@
                     <h3 class="graus">25ºC</h3>
                     <h3 class="porc">67%</h3>
                 </div>
-                <div class="secao" onclick="">
+                <div class="secao" onclick="dash()">
                     <h3 class="dt">Data: 29/04/2024</h3>
                     <h3 class="num">2</h3>
                     <h3 class="graus">34ºC</h3>
@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <div class="grafico">
+        <div class="grafico" id="grafico">
             <div class="metricas">
                 <div class="legenda">
                     <h3>Data registrada</h3>
@@ -118,7 +118,7 @@
                                 <p><span>Umidade:<br> 8% </span>às 17:00</p>
                             </div>
                         </div>
-                        <button>Voltar para a lista diária</button>
+                        <button onclick="lista()">Voltar para a lista diária</button>
                     </div>
                 </div>
             </div>
@@ -127,6 +127,13 @@
 </body>
 </html>
 <script>
+    /*Função para aparecer a dashboard*/
+    /*function dash(){
+        grafico.innerHTML = ``;
+    }*/
+    /*________________________________*/
+
+
     /*Código do gráfico F2*/
     const ctx1 = document.getElementById('myChart1');
 
@@ -159,11 +166,12 @@
     });
 
     /*Botão para o gráfico F12*/
+    /*
     function exibirgrafico(){
         var setor = select_setor.value;
 
         if(setor == "setorf2"){
-            /*Código do gráfico F2*/
+            /*Código do gráfico F2
             const ctx1 = document.getElementById('myChart1');
 
             new Chart(ctx1, {
@@ -226,5 +234,5 @@
             }
             });
         }
-    }
+    } */
 </script>
