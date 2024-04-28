@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ptbr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="css/dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <div class="background">
         <header class="menu">
@@ -35,7 +37,7 @@
                     <div class="set">
                         <img src="src/img/Vector (1).png" alt="" class="sensor">
                         <p class="txt">Setores Irregulares</p>
-                    <p class="txt">2</p>
+                        <p class="txt">2</p>
                     </div>
                     <button class="botao">Ver Detalhes</button>
                 </div>
@@ -100,15 +102,19 @@
                 <div class="chartjs">
                     <div class="exp">
                         <h2>Gráfico setor: F2</h2>
-                        <select name="" class="slc" id="select_setor" onchange="exibirgrafico()">
+                        <select name="" class="slc" id="select_setor" onclick="exibirgrafico()">
                             <option class="op" value="#" disabled selected>Selecione um setor</option>
                             <option class="op" value="setorf2">Gráfico setor: F2</option>
                             <option class="op" value="setorf12">Gráfico setor: F12</option>
                         </select>
-                        <button class="botgrafico"><a href="monitoramento.html">Visualizar monitoramento em tempo real</a></button>
+                        <button class="botgrafico"><a href="monitoramento.html">Visualizar monitoramento em tempo
+                                real</a></button>
                     </div>
                     <div class="chart">
                         <canvas id="myChart1" class="chart1"></canvas>
+                    </div>
+                    <div class="chart">
+                        <canvas id="myChart2" class="chart2"></canvas>
                     </div>
                     <div class="voltar">
                         <h4>Alertas:</h4>
@@ -125,114 +131,85 @@
         </div>
     </main>
 </body>
+
 </html>
 <script>
-    /*Função para aparecer a dashboard*/
-    /*function dash(){
-        grafico.innerHTML = ``;
-    }*/
-    /*________________________________*/
-
-
-    /*Código do gráfico F2*/
-    const ctx1 = document.getElementById('myChart1');
-
-    new Chart(ctx1, {
-    type: 'line',
-    data: {
-        labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
-        datasets: [{
-        label: 'Temperatura',
-        data: [34, 21, 23, 25, 22, 23],
-        borderColor: 'rgb(255,0,0)',
-        backgroundColor: 'rgb(255,0,0)',
-        borderWidth: 3
-        },
-        {
-        label: 'Umidade',
-        data: [13, 16, 12, 14, 13, 8],
-        borderColor: 'rgb(0,0,255)',
-        backgroundColor: 'rgb(0,0,255)',
-        borderWidth: 3
-        }]
-    },
-    options: {
-        scales: {
-        y: {
-            beginAtTweny: true
-        }
-        }
-    }
-    });
 
     /*Botão para o gráfico F12*/
-    /*
-    function exibirgrafico(){
+
+    function exibirgrafico() {
         var setor = select_setor.value;
+        const ctx1 = document.getElementById('myChart1');
+        const ctx2 = document.getElementById('myChart2');
 
-        if(setor == "setorf2"){
-            /*Código do gráfico F2
-            const ctx1 = document.getElementById('myChart1');
+        if (setor == "setorf2") {
 
+            var myChart2 = new Chart(ctx2);
+            myChart2.destroy();
+            
             new Chart(ctx1, {
-            type: 'line',
-            data: {
-                labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
-                datasets: [{
-                label: 'Temperatura',
-                data: [34, 21, 23, 25, 22, 23],
-                borderColor: 'rgb(255,0,0)',
-                backgroundColor: 'rgb(255,0,0)',
-                borderWidth: 3
+                type: 'line',
+                data: {
+                    labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+                    datasets: [{
+                        label: 'Temperatura',
+                        data: [34, 21, 23, 25, 22, 23],
+                        borderColor: 'rgb(255,0,0)',
+                        backgroundColor: 'rgb(255,0,0)',
+                        borderWidth: 3
+                    },
+                    {
+                        label: 'Umidade',
+                        data: [13, 16, 12, 14, 13, 8],
+                        borderColor: 'rgb(0,0,255)',
+                        backgroundColor: 'rgb(0,0,255)',
+                        borderWidth: 3
+                    }]
                 },
-                {
-                label: 'Umidade',
-                data: [13, 16, 12, 14, 13, 8],
-                borderColor: 'rgb(0,0,255)',
-                backgroundColor: 'rgb(0,0,255)',
-                borderWidth: 3
-                }]
-            },
-            options: {
-                scales: {
-                y: {
-                    beginAtTweny: true
+                options: {
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Setor F2'
+                        }
+                    }
                 }
-                }
-            }
             });
         }
+        else if (setor == "setorf12") {
 
-        if(setor == "setorf12"){
-            const ctx1 = document.getElementById('myChart1');
+            var myChart1 = new Chart(ctx1);
+            myChart1.destroy();
 
-            new Chart(ctx1, {
-            type: 'line',
-            data: {
-                labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
-                datasets: [{
-                label: 'Temperatura',
-                data: [22, 21, 23, 35, 22, 23],
-                borderColor: 'rgb(255,0,0)',
-                backgroundColor: 'rgb(255,0,0)',
-                borderWidth: 3
+            new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+                    datasets: [{
+                        label: 'Temperatura',
+                        data: [22, 21, 23, 35, 22, 23],
+                        borderColor: 'rgb(255,0,0)',
+                        backgroundColor: 'rgb(255,0,0)',
+                        borderWidth: 3
+                    },
+                    {
+                        label: 'Umidade',
+                        data: [13, 16, 12, 14, 13, 12],
+                        borderColor: 'rgb(0,0,255)',
+                        backgroundColor: 'rgb(0,0,255)',
+                        borderWidth: 3
+                    }]
                 },
-                {
-                label: 'Umidade',
-                data: [13, 16, 12, 14, 13, 12],
-                borderColor: 'rgb(0,0,255)',
-                backgroundColor: 'rgb(0,0,255)',
-                borderWidth: 3
-                }]
-            },
-            options: {
-                scales: {
-                y: {
-                    beginAtTweny: true
+                options: {
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Setor F12'
+                        }
+                    }
                 }
-                }
-            }
             });
+
         }
-    } */
+    } 
 </script>
