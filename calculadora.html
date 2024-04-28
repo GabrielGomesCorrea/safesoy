@@ -35,7 +35,7 @@
                 Insira sua produção total de soja em toneladas:
                 <input class="input3" type="number" id="input_producao" placeholder=" Quanto vc produziu: " style="width: 185px;">
                 <br>
-                Toneladas Aproximadamente 70928 toneladas por mês
+                <!-- Toneladas Aproximadamente 70928 toneladas por mês -->
                 <br>
                 <br>
                 <button onclick="simularEconomia()" class="botao"><b>Simular Economia</b></button>
@@ -67,13 +67,13 @@
 
         div_resultado.innerHTML = (`
             <br>
-            A empresa ${nomeEmpresa} gasta mensalmente R$${gastoMes} com defensivos agrícolas,
+            A empresa ${nomeEmpresa} gasta mensalmente R$${gastoMes.toFixed(2)} com defensivos agrícolas,
             <br>
             O que se converte em R$${gastoAno} anualmente.
             <br>
-            Com o uso do SafeSoy, suas economias podem alcançar até 25%, sendo assim, mensalmente o custo será de R$${gastoAtenuadoMes}
+            Com o uso do SafeSoy, suas economias podem alcançar até 25%, sendo assim, economizará mensalmente R$${gastoAtenuadoMes}
             <br>
-            E de R$${gastoAtenuadoAno} ao ano.
+            e R$${gastoAtenuadoAno} ao ano.
 
 
         `)
