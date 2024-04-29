@@ -124,6 +124,10 @@
     background-color: #e70101;
     border: #e70101 solid;
 }
+.botao a{
+    text-decoration: none;
+    color: #ffffff;
+}
 .umidade{
     text-align: center;
     width: 300px;
@@ -329,7 +333,7 @@
     color: #FF0000;
 }
 .voltar button{
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     background-color: #DFC900;
     border-radius: 5px;
     cursor: pointer;
@@ -340,4 +344,8 @@
 }
 .voltar button:hover{
     background-color: #d3be00;
+}
+.voltar a{
+    text-decoration: none;
+    color: #000000;
 }
