@@ -1,0 +1,151 @@
+:root {
+    --verde: #8DB600;
+    --azul: #7AB3C6;
+    --amarelo: #DFC900;
+    --cinza: #ACACAC;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Jakarts;
+}
+
+@font-face {
+    font-family: Jakarts;
+    src: url(../src/font/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf);
+}
+
+html {
+    /* fazendo com que a imagem cubra 100% do fundo */
+    min-height: 100%;
+}
+
+body {
+    background-image: url(../src/img/naom_5f329a6e0b969.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.pai{
+    display: flex;
+    flex-direction: row;
+    /* padding-left: 10px; */
+    padding-right: 10px;
+}
+
+.instrucoes{
+    width: 50%;
+    height: 1000px;
+    background-color: white;
+    color: rgb(0, 0, 0);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+
+    padding-top: 60px;
+    padding-left: 30px;
+}
+
+.instrucoes h1{
+    font-size: 50px;
+}
+
+.regras{
+    width: 70%;
+    height: 400px;
+    background-color: #8DB600;
+    color: #FFFFFF;
+    border-radius: 5px;
+
+    margin-top: 5%;
+    padding: 20px;
+    margin-left: 90px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.regras h1{
+    color: #FFFFFF;
+}
+
+.regras p{
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+/* BobIA ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+#container {
+    width: 30%;
+    height: 800px;
+    background-color: rgb(255, 255, 255, 0.9);
+    border-radius: 22px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    margin: 50px auto;
+    padding-top: 40px;
+    text-align: center;
+}
+
+h1 {
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+textarea[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 400px;
+}
+
+select,
+button {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button {
+    width: 150px;
+    background-color: #8DB600;
+    color: #FFFFFF;
+
+    border: none;
+    border-radius: 33px;
+    transition: 200ms;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+button:hover {
+    width: 160px;
+    background-color: #DFC900;
+}
+
+#resposta {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 22px;
+    background-color: #ececec;
+    color: #000000;
+    /* border: 1px solid #63666A; */
+    text-align: left;
+    display: none;
+}
