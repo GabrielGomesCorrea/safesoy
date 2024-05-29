@@ -18,7 +18,8 @@
             <div class="regras">
                 <h1>Instruções:</h1>
                 <p><b>1.</b> Seja bem específico ao fazer a pergunta;</p>
-                <p><b>2.</b> A inteligência artificial foi desenvolvida para responder perguntas relacionadas ao sistema de sensor DHT11;</p>
+                <p><b>2.</b> A inteligência artificial foi desenvolvida para responder perguntas relacionadas ao sistema
+                    de sensor DHT11;</p>
                 <p><b>3.</b> Evite pergundas não relacionadas ao propósito da ferramenta;</p>
 
             </div>
@@ -34,6 +35,26 @@
 
     </div>
 
+    <script>
+
+        async function gerarResposta() {
+            const pergunta = document.getElementById('pergunta').value;
+
+            const response = await fetch('http://localhost:3334/perguntar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ pergunta })
+            });
+
+            const data = await response.json();
+
+            resposta.style.display = 'block';
+            document.getElementById('resposta').innerText = data.resultado;
+        }
+
+    </script>
 </body>
 
 </html>
