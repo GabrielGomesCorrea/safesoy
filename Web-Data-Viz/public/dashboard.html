@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="atualizarFeed()">
     <div class="background">
         <header class="menu">
             <div class="navbar">
@@ -49,83 +49,15 @@
             </div>
         </div>
         <div class="criticos" id="criticos">
-            <div class="lista">
+            <div class="lista" id="lista_pai">
                 <div class="legenda">
                     <h3>Data registrada</h3>
                     <h3>Setores</h3>
                     <h3>Temperatura</h3>
                     <h3>Umidade</h3>
-                </div>
-                <div class="secao" onclick="">
-                    <h3 class="dt">Data: 26/04/2024</h3>
-                    <h3 class="num">5</h3>
-                    <h3 class="graus">39ºC</h3>
-                    <h3 class="porc">40%</h3>
-                </div>
-                <div class="secao" onclick="">
-                    <h3 class="dt">Data: 27/04/2024</h3>
-                    <h3 class="num">2</h3>
-                    <h3 class="graus">37ºC</h3>
-                    <h3 class="porc">50%</h3>
-                </div>
-                <div class="secao" onclick="">
-                    <h3 class="dt">Data: 28/04/2024</h3>
-                    <h3 class="num">6</h3>
-                    <h3 class="graus">25ºC</h3>
-                    <h3 class="porc">67%</h3>
-                </div>
-                <div class="secao" onclick="dash()">
-                    <h3 class="dt">Data: 29/04/2024</h3>
-                    <h3 class="num">2</h3>
-                    <h3 class="graus">34ºC</h3>
-                    <h3 class="porc">8%</h3>
                 </div>
                 <div class="historico">
                     <button><a href="historico.html">Visualizar Histórico Completo</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="grafico" id="grafico">
-            <div class="metricas">
-                <div class="legenda">
-                    <h3>Data registrada</h3>
-                    <h3>Setores</h3>
-                    <h3>Temperatura</h3>
-                    <h3>Umidade</h3>
-                </div>
-                <div class="secao1" onclick="">
-                    <h3 class="dt">Data: 29/04/2024</h3>
-                    <h3 class="num">2</h3>
-                    <h3 class="graus">37ºC</h3>
-                    <h3 class="porc">92%</h3>
-                </div>
-                <div class="chartjs">
-                    <div class="exp">
-                        <h2>Gráfico setor: F2</h2>
-                        <select name="" class="slc" id="select_setor" onclick="exibirgrafico()">
-                            <option class="op" value="#" disabled selected>Selecione um setor</option>
-                            <option class="op" value="setorf2">Gráfico setor: F2</option>
-                            <option class="op" value="setorf12">Gráfico setor: F12</option>
-                        </select>
-                        <button class="botgrafico"><a href="monitoramento.html">Visualizar monitoramento em tempo
-                                real</a></button>
-                    </div>
-                    <div class="chart">
-                        <canvas id="myChart1" class="chart1"></canvas>
-                    </div>
-                    <div class="chart">
-                        <canvas id="myChart2" class="chart2"></canvas>
-                    </div>
-                    <div class="voltar">
-                        <h4>Alertas:</h4>
-                        <div class="msgalerts">
-                            <div class="msg">
-                                <p><span>Temperatura:<br> 34ºC </span>às 12:00</p>
-                                <p><span>Umidade:<br> 8% </span>às 17:00</p>
-                            </div>
-                        </div>
-                        <button><a href="#criticos">Voltar para a lista diária</a></button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -133,83 +65,46 @@
 </body>
 
 </html>
+
 <script>
+function atualizarFeed() {
+        fetch("/dashboard/historico").then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
 
-    /*Botão para o gráfico F12*/
+                    var lista = document.getElementById("lista_pai");
+                    lista.innerHTML = "";
 
-    function exibirgrafico() {
-        var setor = select_setor.value;
-        const ctx1 = document.getElementById('myChart1');
-        const ctx2 = document.getElementById('myChart2');
+                    for (let i = 0; i < resposta.length; i++) {
+                        var respostasBD = resposta[i];
 
-        if (setor == "setorf2") {
+                        // criando e manipulando elementos do HTML via JavaScript
+                        var secao = document.createElement("div");
+                        var data = document.createElement("h3");
+                        var numero = document.createElement("h3");
+                        var graus = document.createElement("h3");
+                        var porcentagem = document.createElement("h3");
 
-            var myChart2 = new Chart(ctx2);
-            myChart2.destroy();
-            
-            new Chart(ctx1, {
-                type: 'line',
-                data: {
-                    labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
-                    datasets: [{
-                        label: 'Temperatura',
-                        data: [34, 21, 23, 25, 22, 23],
-                        borderColor: 'rgb(255,0,0)',
-                        backgroundColor: 'rgb(255,0,0)',
-                        borderWidth: 3
-                    },
-                    {
-                        label: 'Umidade',
-                        data: [13, 16, 12, 14, 13, 8],
-                        borderColor: 'rgb(0,0,255)',
-                        backgroundColor: 'rgb(0,0,255)',
-                        borderWidth: 3
-                    }]
-                },
-                options: {
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Setor F2'
-                        }
+                        secao.className = "secao";
+                        data.className = "dt";
+                        numero.className = "num";
+                        graus.className = "graus";
+                        porcentagem.className = "porc";
+
+                
+                        lista.appendChild(secao);
+                        secao.appendChild(data);
+                        secao.appendChild(numero);
+                        secao.appendChild(graus);
+                        secao.appendChild(porcentagem);
                     }
-                }
-            });
-        }
-        else if (setor == "setorf12") {
-
-            var myChart1 = new Chart(ctx1);
-            myChart1.destroy();
-
-            new Chart(ctx2, {
-                type: 'line',
-                data: {
-                    labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
-                    datasets: [{
-                        label: 'Temperatura',
-                        data: [22, 21, 23, 35, 22, 23],
-                        borderColor: 'rgb(255,0,0)',
-                        backgroundColor: 'rgb(255,0,0)',
-                        borderWidth: 3
-                    },
-                    {
-                        label: 'Umidade',
-                        data: [13, 16, 12, 14, 13, 12],
-                        borderColor: 'rgb(0,0,255)',
-                        backgroundColor: 'rgb(0,0,255)',
-                        borderWidth: 3
-                    }]
-                },
-                options: {
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Setor F12'
-                        }
-                    }
-                }
-            });
-
-        }
-    } 
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
 </script>
