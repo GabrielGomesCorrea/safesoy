@@ -49,7 +49,7 @@
             </div>
 
             <div class="boxbotao">
-                <button onclick="cadastro()" class="button">Cadastrar</button>
+                <button onclick="cadastrar()" class="button">Cadastrar</button>
             </div>
 
             <div class="boxfilho3">
@@ -71,17 +71,17 @@
         var nomeVar = input_nome.value;
         var emailVar = input_email.value;
         var senhaVar = input_senha.value;
-        var confirmacaoSenhaVar = input_confirmacao.value;
+        // var confirmacaoSenhaVar = input_confirmacao.value;
         
-        if (
-          nomeVar == "" ||
-          emailVar == "" ||
-          senhaVar == "" ||
-          confirmacaoSenhaVar == ""
+        // if (
+        //   nomeVar == "" ||
+        //   emailVar == "" ||
+        //   senhaVar == "" ||
+        //   confirmacaoSenhaVar == ""
           
-        ) {   
-            alert("Mensagem de erro para todos os campos em branco");
-        } 
+        // ) {   
+        //     alert("Mensagem de erro para todos os campos em branco");
+        // } 
     
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
