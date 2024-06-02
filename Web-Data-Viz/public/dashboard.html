@@ -20,7 +20,7 @@
         </header>
         <div class="mensagem">
             <div class="bloco1">
-                <h1 class="msg">Seja bem vindo de volta, Fernando!</h1>
+                <h1 class="msg">Seja bem vindo de volta,<span id="nome_user"> </span></h1>
                 <h3 class="texto">Relatórios de monitoramento da data 29/04/2024</h3>
             </div>
         </div>
@@ -50,31 +50,33 @@
         </div>
         <div class="criticos" id="criticos">
             <div class="lista" id="lista_pai">
-                <div class="legenda">
+                <div class="legenda" id="lista_legenda">
                     <h3>Data registrada</h3>
                     <h3>Setores</h3>
                     <h3>Temperatura</h3>
                     <h3>Umidade</h3>
                 </div>
-                <div class="historico">
+                <div class="historico" id="botaoHistorico">
                     <button><a href="historico.html">Visualizar Histórico Completo</a></button>
                 </div>
             </div>
         </div>
     </main>
 </body>
-
 </html>
 
 <script>
-function atualizarFeed() {
+    nome_user.innerHTML = sessionStorage.NOME_USUARIO;
+
+    function atualizarFeed() {
         fetch("/dashboard/historico").then(function (resposta) {
             if (resposta.ok) {
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
 
                     var lista = document.getElementById("lista_pai");
-                    lista.innerHTML = "";
+                    var lista_legenda = document.getElementById("lista_legenda")
+                    var historicoButton = document.getElementById("botaoHistorico")
 
                     for (let i = 0; i < resposta.length; i++) {
                         var respostasBD = resposta[i];
@@ -86,18 +88,24 @@ function atualizarFeed() {
                         var graus = document.createElement("h3");
                         var porcentagem = document.createElement("h3");
 
+                        data.innerHTML = respostasBD.DataAtual;
+                        numero.innerHTML = respostasBD.idSetor;
+                        graus.innerHTML = respostasBD.temperatura;
+                        porcentagem.innerHTML = respostasBD.umidade;
+
                         secao.className = "secao";
                         data.className = "dt";
                         numero.className = "num";
                         graus.className = "graus";
                         porcentagem.className = "porc";
 
-                
-                        lista.appendChild(secao);
+                        lista.appendChild(secao)
                         secao.appendChild(data);
                         secao.appendChild(numero);
                         secao.appendChild(graus);
                         secao.appendChild(porcentagem);
+
+                        lista.insertBefore(secao, historicoButton);
                     }
                 });
             } else {
@@ -107,4 +115,6 @@ function atualizarFeed() {
             console.error(resposta);
         });
     }
+
+
 </script>

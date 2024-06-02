@@ -6,7 +6,7 @@
     <title>Histórico</title>
     <link rel="stylesheet" href="css/historico.css">
 </head>
-<body>
+<body onload="atualizarFeed()">
     <div class="background">
         <header class="menu">
             <div class="navbar">
@@ -18,69 +18,64 @@
     </div>
     <main>
         <div class="criticos">
-            <div class="lista">
+            <div class="lista" id="lista_pai">
                 <div class="legenda">
                     <h3>Data registrada</h3>
                     <h3>Setores</h3>
                     <h3>Temperatura</h3>
                     <h3>Umidade</h3>
                 </div>
-                <div class="secao" onclick="">
-                    <h3 class="dt">Data: 29/04/2024</h3>
-                    <h3 class="num">2</h3>
-                    <h3 class="graus">34ºC</h3>
-                    <h3 class="porc">8%</h3>
-                </div>
-                <div class="secao" onclick="">
-                    <h3 class="dt">Data: 28/04/2024</h3>
-                    <h3 class="num">6</h3>
-                    <h3 class="graus">25ºC</h3>
-                    <h3 class="porc">67%</h3>
-                </div>
-                <div class="secao" onclick="">
-                    <h3 class="dt">Data: 27/04/2024</h3>
-                    <h3 class="num">2</h3>
-                    <h3 class="graus">37ºC</h3>
-                    <h3 class="porc">50%</h3>
-                </div>
-                <div class="secao" onclick="">
-                    <h3 class="dt">Data: 26/04/2024</h3>
-                    <h3 class="num">5</h3>
-                    <h3 class="graus">39ºC</h3>
-                    <h3 class="porc">40%</h3>
-                </div>
-                <div class="secao" onclick="">
-                    <h3 class="dt">Data: 25/04/2024</h3>
-                    <h3 class="num">3</h3>
-                    <h3 class="graus">32ºC</h3>
-                    <h3 class="porc">6%</h3>
-                </div>
-                <div class="secao" onclick="">
-                    <h3 class="dt">Data: 24/04/2024</h3>
-                    <h3 class="num">8</h3>
-                    <h3 class="graus">38ºC</h3>
-                    <h3 class="porc">32%</h3>
-                </div>
-                <div class="secao" onclick="">
-                    <h3 class="dt">Data: 23/04/2024</h3>
-                    <h3 class="num">1</h3>
-                    <h3 class="graus">28ºC</h3>
-                    <h3 class="porc">21%</h3>
-                </div>
-                <div class="secao" onclick="">
-                    <h3 class="dt">Data: 22/04/2024</h3>
-                    <h3 class="num">5</h3>
-                    <h3 class="graus">33ºC</h3>
-                    <h3 class="porc">50%</h3>
-                </div>
-                <div class="secao" onclick="">
-                    <h3 class="dt">Data: 21/04/2024</h3>
-                    <h3 class="num">2</h3>
-                    <h3 class="graus">37ºC</h3>
-                    <h3 class="porc">50%</h3>
-                </div>
             </div>
         </div>
     </main>
 </body>
 </html>
+
+<script>
+    function atualizarFeed() {
+        fetch("/dashboard/historico").then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var lista = document.getElementById("lista_pai");
+                    var lista_legenda = document.getElementById("lista_legenda")
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        var respostasBD = resposta[i];
+
+                        // criando e manipulando elementos do HTML via JavaScript
+                        var secao = document.createElement("div");
+                        var data = document.createElement("h3");
+                        var numero = document.createElement("h3");
+                        var graus = document.createElement("h3");
+                        var porcentagem = document.createElement("h3");
+
+                        data.innerHTML =   respostasBD.DataAtual;
+                        numero.innerHTML = respostasBD.idSetor;
+                        graus.innerHTML = respostasBD.temperatura;
+                        porcentagem.innerHTML = respostasBD.umidade;
+
+                        secao.className = "secao";
+                        data.className = "dt";
+                        numero.className = "num";
+                        graus.className = "graus";
+                        porcentagem.className = "porc";
+
+                        lista.appendChild(secao)
+                        secao.appendChild(data);
+                        secao.appendChild(numero);
+                        secao.appendChild(graus);
+                        secao.appendChild(porcentagem);
+                    }
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
+
+
+</script>
