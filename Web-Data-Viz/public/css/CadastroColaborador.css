@@ -49,6 +49,18 @@ body {
     font-weight: 500;
     padding-bottom: 15px;
 }
+
+.select{
+    width: 550px;
+    height: 65px;
+    border-radius: 10px;
+    border: black solid 0.5px;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 18px;
+
+}
+
 .inputbox{
     display: flex;
     justify-content: center;
