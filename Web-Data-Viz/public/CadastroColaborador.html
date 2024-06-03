@@ -2,121 +2,131 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <link rel="stylesheet" href="css/CadastroColaborador.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <script src="js/Login/CadastroScript.js"></script>
-    <title>Bem-vindo ao Registro!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <link rel="stylesheet" href="css/CadastroColaborador.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <script src="js/Login/CadastroScript.js"></script>
+  <title>Bem-vindo ao Registro!</title>
 </head>
 
 <body>
-    <div class="boxpai">
-        <div class="boxfilho">
+  <div class="boxpai">
+    <div class="boxfilho">
 
-            <div class="boxlogo">
-                <img src="src/img/Logo.svg" alt="Logo SafeSoy" class="logoimg">
-            </div>
+      <div class="boxlogo">
+        <img src="src/img/Logo.svg" alt="Logo SafeSoy" class="logoimg">
+      </div>
 
-            <div class="boxregistro">
-                <h3>Faça seu cadastro</h3>
-                <div class="inputbox">
+      <div class="boxregistro">
+        <h3>Faça seu cadastro</h3>
+        <div class="inputbox">
 
-                    <div class="inputbox6">
-                        <select class="select" id="select_fazenda">
-                          <option value="#" disabled selected >Selecione a Fazenda</option>
-                        </select>
-                    </div>
+          <div class="inputbox6">
+            <select class="select" id="select_fazenda">
+              <option value="#" disabled selected>Selecione a Fazenda</option>
+            </select>
+          </div>
 
-                    <div class="inputbox1">
-                        <input type="text" placeholder="Nome" class="input" id="input_nome">
-                    </div>
+          <div class="inputbox1">
+            <input type="text" placeholder="Nome" class="input" id="input_nome">
+          </div>
 
-                    <div class="inputbox2">
-                        <input type="" placeholder="Sobrenome" class="input" id="input_sobrenome">
-                    </div>
+          <div class="inputbox2">
+            <input type="" placeholder="Sobrenome" class="input" id="input_sobrenome">
+          </div>
 
-                    <div class="inputbox3">
-                        <input type="" placeholder="Email" class="input" id="input_email">
-                    </div>
+          <div class="inputbox3">
+            <input type="" placeholder="Email" class="input" id="input_email">
+          </div>
 
-                    <div class="inputbox4">
-                        <input type="password" placeholder="Senha" class="input" id="input_senha">
-                    </div>
+          <div class="inputbox4">
+            <input type="password" placeholder="Senha" class="input" id="input_senha">
+          </div>
 
-                    <div class="inputbox5">
-                        <input type="password" placeholder="Confirmar Senha" class="input" id="input_ConfirmarSenha">
-                    </div>
-                </div>
-            </div>
-
-            <div class="boxbotao">
-                <button onclick="cadastrar()" class="button">Cadastrar</button>
-            </div>
-
-            <div class="boxfilho3">
-                <h6>Já tem uma conta?</h6>
-                <a href="Login.html" class="Login">Login</a>
-            </div>
+          <div class="inputbox5">
+            <input type="password" placeholder="Confirmar Senha" class="input" id="input_ConfirmarSenha">
+          </div>
         </div>
+      </div>
+
+      <div class="boxbotao">
+        <button onclick="cadastrar()" class="button">Cadastrar</button>
+      </div>
+
+      <div class="boxfilho3">
+        <h6>Já tem uma conta?</h6>
+        <a href="Login.html" class="Login">Login</a>
+      </div>
     </div>
+  </div>
 </body>
 
 </html>
 
 <script>
 
-    function cadastrar() {
-    
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
-        var nomeVar = input_nome.value;
-        var emailVar = input_email.value;
-        var senhaVar = input_senha.value;
-        // var confirmacaoSenhaVar = input_confirmacao.value;
-        
-        // if (
-        //   nomeVar == "" ||
-        //   emailVar == "" ||
-        //   senhaVar == "" ||
-        //   confirmacaoSenhaVar == ""
-          
-        // ) {   
-        //     alert("Mensagem de erro para todos os campos em branco");
-        // } 
-    
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            // Agora vá para o arquivo routes/usuario.js
-            nomeServer: nomeVar,
-            emailServer: emailVar,
-            senhaServer: senhaVar
-          }),
+  function cadastrar() {
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = input_nome.value;
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+    var confirmacaoSenhaVar = input_confirmacao.value;
+
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == ""
+
+    ) {
+      alert("Mensagem de erro para todos os campos em branco");
+    }
+
+    else if (senhaVar != confirmacaoSenhaVar) {
+      alert("Senha inválida")
+    }
+
+    else {
+
+      // Enviando o valor da nova input
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nomeVar,
+          emailServer: emailVar,
+          senhaServer: senhaVar
+        }),
+      })
+      
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+
+            alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+
+            setTimeout(() => {
+              window.location = "login.html";
+            }, "2000");
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
         })
-          .then(function (resposta) {
-            console.log("resposta: ", resposta);
-    
-            if (resposta.ok) {
-           
-               alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
-    
-              setTimeout(() => {
-                window.location = "login.html";
-              }, "2000");
-            } else {
-              throw "Houve um erro ao tentar realizar o cadastro!";
-            }
-          })
-          .catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-          });
-    
-        return false;
-      }
-    </script>
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+
+      return false;
+    }
+
+  }
+
+</script>
