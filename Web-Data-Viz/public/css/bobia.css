@@ -56,6 +56,14 @@ body {
     font-size: 50px;
 }
 
+.instrucoes button{
+    background-color: #ACACAC;
+    margin-left: 260px;
+}
+.instrucoes button:hover{
+    background-color: #807e7e;
+}
+
 .regras{
     width: 70%;
     height: 400px;

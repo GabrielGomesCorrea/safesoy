@@ -16,7 +16,7 @@
         <header class="menu">
             <div class="navbar">
                 <div class="espaco"></div>
-                <img src="src/img/Logo.svg" alt="" class="logo">
+                <img onclick="home()" src="src/img/Logo.svg" alt="" class="logo">
                 <img src="src/img/vector.svg" alt="" class="user">
             </div>
         </header>
@@ -24,6 +24,7 @@
             <div class="bloco1">
                 <h1 class="msg">Seja bem vindo de volta, João!</h1>
                 <h3 class="texto">O que deseja fazer hoje?</h3>
+                <button>Acessar a dashboard</button>
             </div>
         </div>
     </div>
@@ -112,8 +113,14 @@
         </div>
         <button onclick="window.location.href = 'bobia.html'"></button>
     </div>
+    <div class="footer">
+        <h1 class="titulo"><b>Problemas com os sensores?</b></h1>
+        <h2 class="titulo2">Acesse o nosso suporte de inteligência artificial!</h2>
+        <button onclick="suporte()">Clique aqui</button>
+    </div>
 
 </body>
+<<<<<<< HEAD
 
 </html>
 
@@ -166,3 +173,14 @@
         });
     }
 </script>
+=======
+<script>
+    function suporte(){
+        window.location = "bobia.html"
+    }
+    function home(){
+        window.location = "index.html"
+    }
+</script>
+</html>
+>>>>>>> f7903519fdfe188523d3718ae2b4fa43db75e6ff

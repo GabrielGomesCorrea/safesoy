@@ -11,7 +11,7 @@
         <header class="menu">
             <div class="navbar">
                 <div class="espaco"></div>
-                <img src="src/img/Logo.svg" alt="" class="logo">
+                <img onclick="home()" src="src/img/Logo.svg" alt="" class="logo">
                 <button><a href="dashboard.html" class="voltar">Voltar para Dashboard</a></button>
             </div>
         </header>
@@ -32,6 +32,11 @@
 </html>
 
 <script>
+    
+    function home(){
+        window.location = "index.html"
+    }
+
     function atualizarFeed() {
         fetch("/dashboard/historico").then(function (resposta) {
             if (resposta.ok) {
