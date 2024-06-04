@@ -61,16 +61,16 @@
     function entrar() {
 
 
-        var emailVar = input_email.value;
+        var RFVar = input_rf.value;
         var senhaVar = input_senha.value;
 
-        if (emailVar == "" || senhaVar == "") {
+        if (RFVar == "" || senhaVar == "") {
 
             alert = ('Preencha os campos em branco.');
 
 
         }
-       
+
         else {
 
             fetch("/usuarios/autenticar", {
@@ -79,7 +79,7 @@
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    emailServer: emailVar,
+                    RFServer: RFVar,
                     senhaServer: senhaVar
                 })
             }).then(function (resposta) {
@@ -91,13 +91,12 @@
                     resposta.json().then(json => {
                         console.log(json);
                         console.log(JSON.stringify(json));
-                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.RF_USUARIO = json.RF;
                         sessionStorage.NOME_USUARIO = json.nome;
-                        sessionStorage.ID_USUARIO = json.id;
-                        sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                        sessionStorage.FK_FAZENDA = json.fkFazenda;
 
                         setTimeout(function () {
-                            window.location = "./dashboard/cards.html";
+                            window.location = "./dashboard.html";
                         }, 1000); // apenas para exibir o loading
 
                     });
@@ -108,7 +107,6 @@
 
                     resposta.text().then(texto => {
                         console.error(texto);
-                        finalizarAguardar(texto);
                     });
                 }
 
