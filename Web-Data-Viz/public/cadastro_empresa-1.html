@@ -23,23 +23,31 @@
             <div class="boxlogin">
                 <h3>Faça cadastro da Empresa</h3>
                 <div class="inputbox">
+
                     <input id="input_nome" type="text" placeholder="Nome Empresa" class="input">
+
                     <div class="inputbox2">
                         <input id="input_cnpj" type="text" placeholder="CNPJ" class="input">
                     </div>
+
                     <div class="inputbox2">
                         <input id="input_cep" type="text" placeholder="CEP" class="input">
                     </div>
+
                     <div class="inputbox2">
                         <input id="input_num" type="text" placeholder="Número" class="input">
                     </div>
+
                     <div class="inputbox2">
                         <input id="input_cidade" type="text" placeholder="Cidade" class="input">
                     </div>
+
                     <div class="inputbox2">
                         <input id="input_estado" type="text" placeholder="Estado" class="input">
                     </div>
+
                 </div>
+
             </div>
 
             <div class="boxbotao">
@@ -64,23 +72,25 @@
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeVar = input_nome.value;
-        var emailVar = input_email.value;
-        var senhaVar = input_senha.value;
-        var confirmacaoSenhaVar = input_confirmacao.value;
+        var cnpjVar = input_cnpj.value;
+        var cepVar = input_cep.value;
+        var numeroVar = input_num.value;
+        var cidadeVar = input_cidade.value;
+        var estadoVar = input_estado.value;
 
         if (
             nomeVar == "" ||
-            emailVar == "" ||
-            senhaVar == "" ||
-            confirmacaoSenhaVar == ""
+            cnpjVar == "" ||
+            cepVar == "" ||
+            numeroVar == ""||
+            cidadeVar == ""||
+            estadoVar == ""
+
 
         ) {
             alert("Preencha os campos em branco.");
         }
 
-        else if (senhaVar != confirmacaoSenhaVar) {
-            alert("Senha inválida")
-        }
 
         else {
 
@@ -94,8 +104,11 @@
                     // crie um atributo que recebe o valor recuperado aqui
                     // Agora vá para o arquivo routes/usuario.js
                     nomeServer: nomeVar,
-                    emailServer: emailVar,
-                    senhaServer: senhaVar
+                    cnpjServer: cnpjVar,
+                    cepServer: cepVar,
+                    numeroServer: numeroVar,
+                    cidadeServer: cidadeVar,
+                    estadoServer: estadoVar
                 }),
             })
 
