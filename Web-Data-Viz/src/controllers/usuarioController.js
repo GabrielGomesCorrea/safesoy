@@ -97,7 +97,7 @@ function cadastrarEmpresa(req, res) {
     var cnpj = req.body.cnpjServer;
     var cep = req.body.cepServer;
     var numero = req.body.numeroServer;
-    var cidade = req.body.estadoServer;
+    var cidade = req.body.cidadeServer;
     var estado = req.body.estadoServer;
     // var empresaId = req.body.empresaServer;
 

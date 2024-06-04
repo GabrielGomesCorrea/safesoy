@@ -51,7 +51,7 @@
             </div>
 
             <div class="boxbotao">
-                <button onclick="" class="button">Cadastro</button>
+                <button onclick="cadastrarEmpresa()" class="button">Cadastro</button>
             </div>
 
             <div class="boxfilho3">
@@ -67,7 +67,7 @@
         window.location = "index.html"
     }
 
-    function cadastrar() {
+    function cadastrarEmpresa() {
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -93,9 +93,8 @@
 
 
         else {
-
             // Enviando o valor da nova input
-            fetch("/usuarios/cadastrar", {
+            fetch("/usuarios/cadastrarEmpresa", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
