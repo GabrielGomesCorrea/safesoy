@@ -14,7 +14,7 @@
         <header class="menu">
             <div class="navbar">
                 <div class="espaco"></div>
-                <img src="src/img/Logo.svg" alt="" class="logo">
+                <img onclick="home()" src="src/img/Logo.svg" alt="" class="logo">
                 <img src="src/img/vector.svg" alt="" class="user">
             </div>
         </header>
@@ -66,6 +66,10 @@
 </html>
 
 <script>
+    function home(){
+        window.location = "index.html"
+    }
+
     nome_user.innerHTML = sessionStorage.NOME_USUARIO;
 
     function atualizarFeed() {

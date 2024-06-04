@@ -13,7 +13,7 @@
     <div class="monitoramento">
         <div class="safe">
             <div class="titulo">
-                <img src="src/img/Logo.svg" alt="" class="logo">
+                <img onclick="home()" src="src/img/Logo.svg" alt="" class="logo">
             </div>
         </div>
         <div class="botao">
@@ -33,6 +33,10 @@
 
     
     <script>
+
+    function home(){
+        window.location = "index.html"
+    }
         /* -- dht11Umidade -- */
         var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
         contextoDht11Umidade.canvas.width = 1000;

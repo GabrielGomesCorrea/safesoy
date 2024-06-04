@@ -23,6 +23,7 @@
                 <p><b>3.</b> Evite pergundas não relacionadas ao propósito da ferramenta;</p>
 
             </div>
+            <button onclick="voltar()">Voltar</button>
         </div>
 
         <div id="container">
@@ -52,6 +53,10 @@
 
             resposta.style.display = 'block';
             document.getElementById('resposta').innerText = data.resultado;
+        }
+
+        function voltar(){
+            window.location = "SuperUsuario.html"
         }
 
     </script>
