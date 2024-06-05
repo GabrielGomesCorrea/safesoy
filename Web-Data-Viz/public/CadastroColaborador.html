@@ -6,11 +6,10 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <link rel="stylesheet" href="css/CadastroColaborador.css">
   <link rel="stylesheet" href="css/reset.css">
-  <script src="js/Login/CadastroScript.js"></script>
   <title>Bem-vindo ao Registro!</title>
 </head>
 
-<body>
+<body onload="listarFazenda()">
   <div class="boxpai">
     <div class="boxfilho">
 
@@ -129,4 +128,20 @@
 
   }
 
+  // Listando as fazendas cadastradas
+  function listarFazenda() {
+    fetch("/usuarios/listarFazenda", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((fazenda) => {
+          fazenda.forEach((fazenda) => {
+            select_fazenda.innerHTML += `<option value='${fazenda.idFazenda}'>${fazenda.nome}</option>`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
 </script>

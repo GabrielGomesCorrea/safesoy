@@ -137,8 +137,15 @@ function cadastrarEmpresa(req, res) {
     }
 }
 
+function listarFazenda(req, res) {
+    usuarioModel.listarFazenda().then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
 module.exports = {
     autenticar,
     cadastrar,
-    cadastrarEmpresa
+    cadastrarEmpresa,
+    listarFazenda
 }

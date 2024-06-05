@@ -35,8 +35,17 @@ function cadastrarEmpresa(nome, cnpj, cep, numero, cidade, estado) {
     return database.executar(instrucaoSql);
 }
 
+
+function listarFazenda() {
+    var instrucaoSql = `SELECT * FROM fazenda`;
+  
+    return database.executar(instrucaoSql);
+  }
+  
+
 module.exports = {
     autenticar,
     cadastrar,
-    cadastrarEmpresa
+    cadastrarEmpresa,
+    listarFazenda
 };
