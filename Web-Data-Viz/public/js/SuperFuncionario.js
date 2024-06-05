@@ -70,7 +70,6 @@ function atualizarFeedFazenda() {
     atualizarFeedFuncionarios()
 }
 
-
 // Função para atualizar a lista de funcionarios presentes dentro de uma fazenda 
 var rfFunc = sessionStorage.getItem("rf")
 
@@ -130,27 +129,36 @@ function atualizarFeedFuncionarios() {
 
 // Função de deletar um funcionario
 function deletar(rf) {
-    console.log("Criar função de apagar do usuario escolhido - RF: " + rf);
-    fetch(`/superUsuario/deletar`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            rfServer: rf,
-        })
-    }).then(function (resposta) {
 
-        if (resposta.ok) {
-            alert("Usuario do RF" + rf + " deletado com sucesso pelo " + sessionStorage.getItem("nome") + "!");
-            atualizarFeedFuncionarios()
-            window.location.href ='SuperUsuario.html'
-        } else if (resposta.status == 404) {
-            alert("Deu 404!");
-        } else {
-            throw ("Houve um erro ao tentar deletar o usuario! Código da resposta: " + resposta.status);
-        }
-    }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-    });
+    var confirmacao = confirm(`Clique em "Ok" caso queira deletar este RF` + rf)
+
+    if(confirmacao){
+        console.log("Criar função de apagar do usuario escolhido - RF: " + rf);
+        fetch(`/superUsuario/deletar`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                rfServer: rf,
+            })
+        }).then(function (resposta) {
+    
+            if (resposta.ok) {
+                alert("Usuario do RF" + rf + " deletado com sucesso pelo " + sessionStorage.getItem("nome") + "!");
+                atualizarFeedFuncionarios()
+                atualizarFeedFazenda()
+                window.location.href ='SuperUsuario.html'
+            } else if (resposta.status == 404) {
+                alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar deletar o usuario! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+    else{
+        alert("Operação cancelada")
+    }
 }
