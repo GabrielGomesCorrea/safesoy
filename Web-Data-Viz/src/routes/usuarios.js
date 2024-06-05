@@ -7,9 +7,16 @@ var usuarioController = require("../controllers/usuarioController");
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
+// Rota de cadastrar a empresa
+router.post("/cadastrarEmpresa", function (req, res) {
+    usuarioController.cadastrarEmpresa(req, res);
+})
 
 router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
+});
+router.get("/listarFazenda", function (req, res) {
+    usuarioController.listarFazenda(req, res);
 });
 
 module.exports = router;

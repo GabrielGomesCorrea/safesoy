@@ -7,9 +7,10 @@
     <title>Administrador</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/SuperUsuario.css">
+    <script src="js/SuperFuncionario.js"></script>
 </head>
 
-<body>
+<body onload="atualizarFeedFazenda(), atualizarFeedFuncionarios()">
 
     <!-- Header -->
     <div class="background">
@@ -22,97 +23,27 @@
         </header>
         <div class="mensagem">
             <div class="bloco1">
-                <h1 class="msg">Seja bem vindo de volta, João!</h1>
+                <h1 class="msg">Seja bem vindo de volta, <span id="nome_user"></span>!</h1>
                 <h3 class="texto">O que deseja fazer hoje?</h3>
                 <button>Acessar a dashboard</button>
             </div>
         </div>
     </div>
 
-    <div class="paipainel">
-        <div class="painel">
-            <div class="titulopainel">
-                <h1>Fazenda Amaguí</h1>
+    <div class="paipainel" id="painel_pai"></div>
+
+    <div class="paipainel2" id="paipainel2">
+        <div class="painel2" id="painelfilho2">
+            <div class="titulospainel2">
+                <h1>Nome</h1>
+                <h1>Editar</h1>
             </div>
-            <div class="conteudopainel">
-                <h1 class="quatro">4</h1>
-                <h1 class="funcionario">Funcionarios</h1>
+            <div class="conteudopainel2" id="conteudopainel_2">
             </div>
         </div>
     </div>
 
-    <div class="paipainel2">
-        <div class="painel2">
-            <div class="titulospainel2">
-                <h1>Nome</h1>
-                <h1>Tipo</h1>
-                <h1>Editar</h1>
-            </div>
-            <div class="conteudopainel2">
-                <div class="pessoa">
-                    <div class="funcionario">
-                        <img class="profile" src="src/img/profile.svg" alt="Vetor profile">
-                        <div class="nome">
-                            <h1>João Silva</h1>
-                            <h1>1010</h1>
-                        </div>
-                    </div>
-                    <div class="cargo">
-                        <h1>Administrador</h1>
-                    </div>
-                    <div class="dots">
-                        <img src="src/img/dots.svg" alt="dots">
-                    </div>
-                </div>
-                <div class="pessoa">
-                    <div class="funcionario">
-                        <img class="profile" src="src/img/profile.svg" alt="Vetor profile">
-                        <div class="nome">
-                            <h1>Maria Santos</h1>
-                            <h1>1011</h1>
-                        </div>
-                    </div>
-                    <div class="cargo">
-                        <h1>Funcionario</h1>
-                    </div>
-                    <div class="dots">
-                        <img src="src/img/dots.svg" alt="dots">
-                    </div>
-                </div>
-                <div class="pessoa">
-                    <div class="funcionario">
-                        <img class="profile" src="src/img/profile.svg" alt="Vetor profile">
-                        <div class="nome">
-                            <h1>Valter Costa</h1>
-                            <h1>1012</h1>
-                        </div>
-                    </div>
-                    <div class="cargo">
-                        <h1>Funcionario</h1>
-                    </div>
-                    <div class="dots">
-                        <img src="src/img/dots.svg" alt="dots">
-                    </div>
-                </div>
-                <div class="pessoa">
-                    <div class="funcionario">
-                        <img class="profile" src="src/img/profile.svg" alt="Vetor profile">
-                        <div class="nome">
-                            <h1>Pedro Oliveira</h1>
-                            <h1>1013</h1>
-                        </div>
-                    </div>
-                    <div class="cargo">
-                        <h1>Funcionario</h1>
-                    </div>
-                    <div class="dots">
-                        <img src="src/img/dots.svg" alt="dots">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button onclick="window.location.href = 'bobia.html'"></button>
-    </div>
+
     <div class="footer">
         <h1 class="titulo"><b>Problemas com os sensores?</b></h1>
         <h2 class="titulo2">Acesse o nosso suporte de inteligência artificial!</h2>
@@ -120,67 +51,4 @@
     </div>
 
 </body>
-<<<<<<< HEAD
-
 </html>
-
-<script>
-    function atualizarFeed() {
-        fetch("/dashboard/historico").then(function (resposta) {
-            if (resposta.ok) {
-                resposta.json().then(function (resposta) {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-
-                    var lista = document.getElementById("lista_pai");
-                    var lista_legenda = document.getElementById("lista_legenda")
-                    var historicoButton = document.getElementById("botaoHistorico")
-
-                    for (let i = 0; i < resposta.length; i++) {
-                        var respostasBD = resposta[i];
-
-                        // criando e manipulando elementos do HTML via JavaScript
-                        var secao = document.createElement("div");
-                        var data = document.createElement("h3");
-                        var numero = document.createElement("h3");
-                        var graus = document.createElement("h3");
-                        var porcentagem = document.createElement("h3");
-
-                        data.innerHTML = respostasBD.DataAtual;
-                        numero.innerHTML = respostasBD.idSetor;
-                        graus.innerHTML = respostasBD.temperatura;
-                        porcentagem.innerHTML = respostasBD.umidade;
-
-                        secao.className = "secao";
-                        data.className = "dt";
-                        numero.className = "num";
-                        graus.className = "graus";
-                        porcentagem.className = "porc";
-
-                        lista.appendChild(secao)
-                        secao.appendChild(data);
-                        secao.appendChild(numero);
-                        secao.appendChild(graus);
-                        secao.appendChild(porcentagem);
-
-                        lista.insertBefore(secao, historicoButton);
-                    }
-                });
-            } else {
-                throw ('Houve um erro na API!');
-            }
-        }).catch(function (resposta) {
-            console.error(resposta);
-        });
-    }
-</script>
-=======
-<script>
-    function suporte(){
-        window.location = "bobia.html"
-    }
-    function home(){
-        window.location = "index.html"
-    }
-</script>
-</html>
->>>>>>> f7903519fdfe188523d3718ae2b4fa43db75e6ff
