@@ -42,7 +42,7 @@
             </div>
 
             <div class="boxbotao">
-                <button onclick="Login()" class="button">Login</button>
+                <button onclick="login()" class="button">Login</button>
             </div>
 
             <div class="boxfilho3">
@@ -58,7 +58,7 @@
     function home() {
         window.location = "index.html"
     }
-    function entrar() {
+    function login() {
 
 
         var RFVar = input_rf.value;
@@ -66,8 +66,7 @@
 
         if (RFVar == "" || senhaVar == "") {
 
-            alert = ('Preencha os campos em branco.');
-
+            alert('Preencha os campos em branco.');
 
         }
 
@@ -96,7 +95,7 @@
                         sessionStorage.FK_FAZENDA = json.fkFazenda;
 
                         setTimeout(function () {
-                            window.location = "./dashboard.html";
+                            window.location = "../dashboard.html";
                         }, 1000); // apenas para exibir o loading
 
                     });
