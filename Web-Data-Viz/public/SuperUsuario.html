@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/SuperUsuario.css">
 </head>
 
-<body>
+<body onload="atualizarFeedFazenda(), atualizarFeedFuncionarios()">
 
     <!-- Header -->
     <div class="background">
@@ -22,26 +22,16 @@
         </header>
         <div class="mensagem">
             <div class="bloco1">
-                <h1 class="msg">Seja bem vindo de volta, João!</h1>
+                <h1 class="msg">Seja bem vindo de volta, <span id="nome_user"></span>!</h1>
                 <h3 class="texto">O que deseja fazer hoje?</h3>
                 <button>Acessar a dashboard</button>
             </div>
         </div>
     </div>
 
-    <div class="paipainel">
-        <div class="painel">
-            <div class="titulopainel">
-                <h1>Fazenda Amaguí</h1>
-            </div>
-            <div class="conteudopainel">
-                <h1 class="quatro">4</h1>
-                <h1 class="funcionario">Funcionarios</h1>
-            </div>
-        </div>
-    </div>
+    <div class="paipainel" id="painel_pai"></div>
 
-    <div class="paipainel2">
+    <div class="paipainel2" id="paipainel2">
         <div class="painel2">
             <div class="titulospainel2">
                 <h1>Nome</h1>
@@ -64,54 +54,8 @@
                         <img src="src/img/dots.svg" alt="dots">
                     </div>
                 </div>
-                <div class="pessoa">
-                    <div class="funcionario">
-                        <img class="profile" src="src/img/profile.svg" alt="Vetor profile">
-                        <div class="nome">
-                            <h1>Maria Santos</h1>
-                            <h1>1011</h1>
-                        </div>
-                    </div>
-                    <div class="cargo">
-                        <h1>Funcionario</h1>
-                    </div>
-                    <div class="dots">
-                        <img src="src/img/dots.svg" alt="dots">
-                    </div>
-                </div>
-                <div class="pessoa">
-                    <div class="funcionario">
-                        <img class="profile" src="src/img/profile.svg" alt="Vetor profile">
-                        <div class="nome">
-                            <h1>Valter Costa</h1>
-                            <h1>1012</h1>
-                        </div>
-                    </div>
-                    <div class="cargo">
-                        <h1>Funcionario</h1>
-                    </div>
-                    <div class="dots">
-                        <img src="src/img/dots.svg" alt="dots">
-                    </div>
-                </div>
-                <div class="pessoa">
-                    <div class="funcionario">
-                        <img class="profile" src="src/img/profile.svg" alt="Vetor profile">
-                        <div class="nome">
-                            <h1>Pedro Oliveira</h1>
-                            <h1>1013</h1>
-                        </div>
-                    </div>
-                    <div class="cargo">
-                        <h1>Funcionario</h1>
-                    </div>
-                    <div class="dots">
-                        <img src="src/img/dots.svg" alt="dots">
-                    </div>
-                </div>
             </div>
         </div>
-        <button onclick="window.location.href = 'bobia.html'"></button>
     </div>
     <div class="footer">
         <h1 class="titulo"><b>Problemas com os sensores?</b></h1>
@@ -120,49 +64,68 @@
     </div>
 
 </body>
-<<<<<<< HEAD
 
 </html>
 
 <script>
-    function atualizarFeed() {
-        fetch("/dashboard/historico").then(function (resposta) {
+    function atualizarFeedFazenda() {
+
+        nome_user.innerHTML = sessionStorage.NOME_USUARIO;
+        fetch("/superUsuario/listarFazenda").then(function (resposta) {
             if (resposta.ok) {
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
 
-                    var lista = document.getElementById("lista_pai");
-                    var lista_legenda = document.getElementById("lista_legenda")
-                    var historicoButton = document.getElementById("botaoHistorico")
+                    // quando tiver o login, tem que comparar os valores da sessionStorage
+                    let nome = "joao"
+                    let rf = '1'
+                    let fkFazenda = "2"
+                    let fkSuperUsuario = "null"
+
+                    sessionStorage.setItem("nome", nome)
+                    sessionStorage.setItem("rf", rf)
+                    sessionStorage.setItem("fkFazenda", fkFazenda)
+                    sessionStorage.setItem("fkSuperUsuario", fkSuperUsuario)
+
+                    var painelPai = document.getElementById("painel_pai");
+                    var painelFilho = document.createElement("div");
+                    var tituloPainel = document.createElement("div");
+                    var conteudoPainel = document.createElement("div");
 
                     for (let i = 0; i < resposta.length; i++) {
-                        var respostasBD = resposta[i];
+                        if (resposta[i].idFazenda == sessionStorage.getItem("fkFazenda")) {
+                            var respostasBD = resposta[i];
+                            break
+                        }
 
-                        // criando e manipulando elementos do HTML via JavaScript
-                        var secao = document.createElement("div");
-                        var data = document.createElement("h3");
-                        var numero = document.createElement("h3");
-                        var graus = document.createElement("h3");
-                        var porcentagem = document.createElement("h3");
+                    }
 
-                        data.innerHTML = respostasBD.DataAtual;
-                        numero.innerHTML = respostasBD.idSetor;
-                        graus.innerHTML = respostasBD.temperatura;
-                        porcentagem.innerHTML = respostasBD.umidade;
+                    if (respostasBD) {
+                        var tituloDoPainel = document.createElement("h1")
+                        var qtdPainel = document.createElement("h1")
+                        var tipoFunc = document.createElement("h1")
 
-                        secao.className = "secao";
-                        data.className = "dt";
-                        numero.className = "num";
-                        graus.className = "graus";
-                        porcentagem.className = "porc";
+                        tituloDoPainel.innerHTML = respostasBD.nome;
+                        qtdPainel.innerHTML = respostasBD.QtdFunc;
+                        tipoFunc.innerHTML = "Funcionarios";
 
-                        lista.appendChild(secao)
-                        secao.appendChild(data);
-                        secao.appendChild(numero);
-                        secao.appendChild(graus);
-                        secao.appendChild(porcentagem);
+                        painelPai.className = "paiPainel";
+                        painelFilho.className = "painel";
+                        tituloPainel.className = "titulopainel";
+                        conteudoPainel.className = "conteudopainel";
+                        tituloDoPainel.className = "h1";
+                        qtdPainel.className = "funcionario";
+                        tipoFunc.className = "funcionario";
 
-                        lista.insertBefore(secao, historicoButton);
+                        painelPai.appendChild(painelFilho)
+                        painelFilho.appendChild(tituloPainel)
+                        tituloPainel.appendChild(tituloDoPainel)
+                        painelFilho.appendChild(conteudoPainel)
+                        conteudoPainel.appendChild(qtdPainel)
+                        conteudoPainel.appendChild(tipoFunc)
+                    }
+                    else {
+                        alert(`Houve um erro ao buscar a fazenda`)
                     }
                 });
             } else {
@@ -172,15 +135,55 @@
             console.error(resposta);
         });
     }
-</script>
-=======
-<script>
-    function suporte(){
-        window.location = "bobia.html"
+
+    function atualizarFeedFuncionarios() {
+
+        var rfFunc = sessionStorage.getItem('rf')
+        fetch(`/superUsuario/listarFuncionario/${rfFunc}`).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var painelPai2 = document.getElementById("paipainel2");
+                    var conteudopainel2 = document.createElement("div");
+                    var pessoa = document.createElement("div")
+                    var funcionarioimg = document.createElement("div");
+
+                    var img = document.createElement("img")
+                    var infoFunc = document.createElement("div")
+                    var nomeFunc = document.createElement("h1")
+                    var rfFunc = document.createElement("h1")
+                    var dots = document.createElement("img")
+
+                    img.innerHTML = `<img class="profile" src="src/img/profile.svg" alt="Vetor profile">`;
+                    img.innerHTML = ` <img src="src/img/dots.svg" alt="dots">`;
+                    nomeFunc.innerHTML = resposta.nome;
+                    rfFunc.innerHTML = resposta.rf;
+
+                    painelPai2.className = "paiPainel2";
+                    pessoa.className = "pessoa";
+                    funcionarioimg.className = "funcionario";
+                    img.className = "profile";
+                    infoFunc.className = "nome";
+                    nomeFunc.className = "h1";
+                    rfFunc.className = "h1";
+                    dots.className = `dots`;
+
+                    painelPai2.appendChild(conteudopainel2)
+                    conteudopainel2.appendChild(pessoa)
+                    pessoa.appendChild(funcionarioimg)
+                    pessoa.appendChild(infoFunc)
+                    infoFunc.appendChild(nomeFunc)
+                    infoFunc.appendChild(rfFunc)
+                    infoFunc.appendChild(rfFunc)
+                    pessoa.appendChild(dots)
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
     }
-    function home(){
-        window.location = "index.html"
-    }
 </script>
-</html>
->>>>>>> f7903519fdfe188523d3718ae2b4fa43db75e6ff
