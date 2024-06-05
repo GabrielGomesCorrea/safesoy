@@ -29,7 +29,26 @@ function listarFuncionario(req, res) {
     });
 }
 
+// Função de deletar o usuario
+function deletar(req, res) {
+    var rf = req.body.rfServer;
+    superUsuarioModel.deletar(rf)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao deletar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     listarFazenda,
-    listarFuncionario
+    listarFuncionario,
+    deletar
   }

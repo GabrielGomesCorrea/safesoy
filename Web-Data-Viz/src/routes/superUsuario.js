@@ -9,4 +9,7 @@ router.get("/listarFazenda", function (req, res) {
 router.get("/listarFuncionario/:rfFunc", function (req, res) {
     superUsuarioController.listarFuncionario(req, res);
 });
+router.post("/deletar", function (req, res) {
+    superUsuarioController.deletar(req, res);
+});
 module.exports = router;
