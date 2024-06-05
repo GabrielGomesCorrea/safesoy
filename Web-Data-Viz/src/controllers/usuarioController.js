@@ -1,15 +1,27 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+
 
 function autenticar(req, res) {
     var RF = req.body.RFServer;
     var senha = req.body.senhaServer;
+    var email = req.body.emailServer;
+    var nome = req.body.nomeServer;
+    var fkFazenda = req.body.nomeServer;
+
 
     if (RF == undefined) {
         res.status(400).send("Seu RF está indefinido!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
+    } else if (email == undefined) {
+        res.status(400).send("seu email está indefinido");
+    } else if (nome == undefined) {
+        res.status(400).send("Seu nome está indefinido");
+    } else if (fkFazenda == undefined) {
+        res.status(400).send("Sua fkFazenda esta indefinida")
     } else {
+
+
 
         usuarioModel.autenticar(RF, senha)
             .then(
@@ -105,8 +117,8 @@ function cadastrarEmpresa(req, res) {
         res.status(400).send("Sua cidade está undefined!");
     } else if (estado == undefined) {
         res.status(400).send("Seu estado está undefined!");
-    } 
-    
+    }
+
     else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
@@ -130,9 +142,9 @@ function cadastrarEmpresa(req, res) {
 
 function listarFazenda(req, res) {
     usuarioModel.listarFazenda().then((resultado) => {
-      res.status(200).json(resultado);
+        res.status(200).json(resultado);
     });
-  }
+}
 
 module.exports = {
     autenticar,
