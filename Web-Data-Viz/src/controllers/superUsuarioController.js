@@ -14,8 +14,9 @@ function listarFazenda(req, res) {
     });
 }
 
-function listarFuncionario(req, res, rfFunc) {
-    superUsuarioModel.listarFuncionario(rfFunc).then(function (resultado) {
+function listarFuncionario(req, res) {
+    var superUsuario = req.params.rfFunc
+    superUsuarioModel.listarFuncionario(superUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

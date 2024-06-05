@@ -139,7 +139,7 @@ html{
 }
 
 /* Css do painel 2 */
-.paipainel2{
+#paipainel2{
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -190,7 +190,7 @@ html{
     height: 55px;
 }
 .nome{
-    font-size: 15px;
+    font-size: 20px;
 }
 .cargo{
     justify-content: center;
@@ -210,7 +210,6 @@ html{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding-left: 70px;
 }
 
 .footer .titulo{

@@ -32,31 +32,17 @@
     <div class="paipainel" id="painel_pai"></div>
 
     <div class="paipainel2" id="paipainel2">
-        <div class="painel2">
+        <div class="painel2" id="painelfilho2">
             <div class="titulospainel2">
                 <h1>Nome</h1>
-                <h1>Tipo</h1>
                 <h1>Editar</h1>
             </div>
-            <div class="conteudopainel2">
-                <div class="pessoa">
-                    <div class="funcionario">
-                        <img class="profile" src="src/img/profile.svg" alt="Vetor profile">
-                        <div class="nome">
-                            <h1>João Silva</h1>
-                            <h1>1010</h1>
-                        </div>
-                    </div>
-                    <div class="cargo">
-                        <h1>Administrador</h1>
-                    </div>
-                    <div class="dots">
-                        <img src="src/img/dots.svg" alt="dots">
-                    </div>
-                </div>
+            <div class="conteudopainel2" id="conteudopainel_2">
             </div>
         </div>
     </div>
+
+
     <div class="footer">
         <h1 class="titulo"><b>Problemas com os sensores?</b></h1>
         <h2 class="titulo2">Acesse o nosso suporte de inteligência artificial!</h2>
@@ -136,47 +122,50 @@
         });
     }
 
-    function atualizarFeedFuncionarios() {
+    var rfFunc = sessionStorage.getItem("rf")
 
-        var rfFunc = sessionStorage.getItem('rf')
+    function atualizarFeedFuncionarios() {
         fetch(`/superUsuario/listarFuncionario/${rfFunc}`).then(function (resposta) {
             if (resposta.ok) {
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
 
                     var painelPai2 = document.getElementById("paipainel2");
-                    var conteudopainel2 = document.createElement("div");
-                    var pessoa = document.createElement("div")
-                    var funcionarioimg = document.createElement("div");
+                    var painelfilho2 = document.getElementById("painelfilho2")
+                    var conteudopainel2 = document.getElementById("conteudopainel_2");
 
-                    var img = document.createElement("img")
-                    var infoFunc = document.createElement("div")
-                    var nomeFunc = document.createElement("h1")
-                    var rfFunc = document.createElement("h1")
-                    var dots = document.createElement("img")
+                    for (var index = 0; index < resposta.length; index++) {
+                        var resultadoBD = resposta[index]
+                        var pessoa = document.createElement("div")
+                        var infoFunc = document.createElement("div")
+                        var nomeFunc = document.createElement("h1")
+                        var rfFunc = document.createElement("h1")
+                        var divBotao = document.createElement("div")
+                        var botaoDots = document.createElement("button")
 
-                    img.innerHTML = `<img class="profile" src="src/img/profile.svg" alt="Vetor profile">`;
-                    img.innerHTML = ` <img src="src/img/dots.svg" alt="dots">`;
-                    nomeFunc.innerHTML = resposta.nome;
-                    rfFunc.innerHTML = resposta.rf;
+                        nomeFunc.innerHTML = resultadoBD.nome;
+                        rfFunc.innerHTML = resultadoBD.rf;
+                        botaoDots.innerHTML = "Deletar Usuario"
 
-                    painelPai2.className = "paiPainel2";
-                    pessoa.className = "pessoa";
-                    funcionarioimg.className = "funcionario";
-                    img.className = "profile";
-                    infoFunc.className = "nome";
-                    nomeFunc.className = "h1";
-                    rfFunc.className = "h1";
-                    dots.className = `dots`;
 
-                    painelPai2.appendChild(conteudopainel2)
-                    conteudopainel2.appendChild(pessoa)
-                    pessoa.appendChild(funcionarioimg)
-                    pessoa.appendChild(infoFunc)
-                    infoFunc.appendChild(nomeFunc)
-                    infoFunc.appendChild(rfFunc)
-                    infoFunc.appendChild(rfFunc)
-                    pessoa.appendChild(dots)
+                        painelPai2.className = "paiPainel2";
+                        painelfilho2.className = "painel2";
+                        conteudopainel2.className = "conteudopainel2";
+                        pessoa.className = "pessoa";
+                        infoFunc.className = "nome";
+                        divBotao.className = "dots";
+
+
+                        painelPai2.appendChild(painelfilho2)
+                        painelfilho2.appendChild(conteudopainel2)
+                        conteudopainel2.appendChild(pessoa)
+                        pessoa.appendChild(infoFunc)
+                        infoFunc.appendChild(nomeFunc)
+                        infoFunc.appendChild(rfFunc)
+                        pessoa.appendChild(divBotao)
+                        divBotao.appendChild(botaoDots)
+                        
+                    }
 
                 });
             } else {
