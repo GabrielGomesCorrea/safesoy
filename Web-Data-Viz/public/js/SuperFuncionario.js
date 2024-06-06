@@ -8,16 +8,7 @@ function atualizarFeedFazenda() {
             resposta.json().then(function (resposta) {
                 console.log("Dados recebidos: ", JSON.stringify(resposta));
 
-                // quando tiver o login, tem que comparar os valores da sessionStorage
-                let nome = "joao"
-                let rf = '1'
-                let fkFazenda = "1"
-                let fkSuperUsuario = "null"
-
-                sessionStorage.setItem("nome", nome)
-                sessionStorage.setItem("rf", rf)
-                sessionStorage.setItem("fkFazenda", fkFazenda)
-                sessionStorage.setItem("fkSuperUsuario", fkSuperUsuario)
+            
 
                 var painelPai = document.getElementById("painel_pai");
                 var painelFilho = document.createElement("div");

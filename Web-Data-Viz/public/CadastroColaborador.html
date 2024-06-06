@@ -72,13 +72,15 @@
     var nomeVar = input_nome.value;
     var emailVar = input_email.value;
     var senhaVar = input_senha.value;
-    var confirmacaoSenhaVar = input_confirmacao.value;
+    var confirmacaoSenhaVar = input_ConfirmarSenha.value;
+    var fkFazenda = select_fazenda.value;
 
     if (
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == ""
+      confirmacaoSenhaVar == "" ||
+      fkFazenda == "#"
 
     ) {
       alert("Preencha os campos em branco.");
@@ -101,7 +103,8 @@
           // Agora vá para o arquivo routes/usuario.js
           nomeServer: nomeVar,
           emailServer: emailVar,
-          senhaServer: senhaVar
+          senhaServer: senhaVar,
+          fkFazendaServer: fkFazenda
         }),
       })
       
@@ -134,8 +137,9 @@
       method: "GET",
     })
       .then(function (resposta) {
-        resposta.json().then((fazenda) => {
-          fazenda.forEach((fazenda) => {
+        console.log(`Dados recebidos: ${resposta}`)
+        resposta.json().then((empresa) => {
+          empresa.forEach((fazenda) => {
             select_fazenda.innerHTML += `<option value='${fazenda.idFazenda}'>${fazenda.nome}</option>`;
           });
         });

@@ -90,7 +90,7 @@
                     resposta.json().then(json => {
                         console.log(json);
                         console.log(JSON.stringify(json));
-                        sessionStorage.RF_USUARIO = json.RF;
+                        sessionStorage.RF_USUARIO = json.rf;
                         sessionStorage.NOME_USUARIO = json.nome;
                         sessionStorage.FK_FAZENDA = json.fkFazenda;
                         sessionStorage.FK_SUPERUSUARIO = json.fkSuperUsuario;

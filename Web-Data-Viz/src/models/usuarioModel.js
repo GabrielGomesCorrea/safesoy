@@ -38,7 +38,7 @@ function cadastrarEmpresa(nome, cnpj, cep, numero, cidade, estado) {
 
 function listarFazenda() {
     var instrucaoSql = `SELECT * FROM fazenda`;
-  
+    
     return database.executar(instrucaoSql);
   }
   
