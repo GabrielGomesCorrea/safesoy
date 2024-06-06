@@ -94,6 +94,7 @@ function atualizarFeedFuncionarios() {
                     pessoa.className = "pessoa";
                     infoFunc.className = "nome";
                     divBotao.className = "dots";
+                    botaoDots.className = "botaoDeletar"
 
                     botaoDots.id = "buttonDelete" + resultadoBD.rf;
                     botaoDots.setAttribute("onclick", `deletar(${resultadoBD.rf})`);

@@ -238,3 +238,27 @@ html{
     font-size: 20px;
 }
 
+.botaoDeletar {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #9CBC2F;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 5px #999;
+  }
+  
+  .botaoDeletar:hover {background-color: #8DB600}
+  
+  .botaoDeletar:active {
+    background-color: #8DB600;
+    box-shadow: 0 5px #666;
+    transform: translateY(2px);
+  }
+
+  
