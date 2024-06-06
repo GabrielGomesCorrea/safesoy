@@ -2,28 +2,15 @@ var usuarioModel = require("../models/usuarioModel");
 
 
 function autenticar(req, res) {
-    var RF = req.body.RFServer;
+    var rf = req.body.RFServer;
     var senha = req.body.senhaServer;
-    var email = req.body.emailServer;
-    var nome = req.body.nomeServer;
-    var fkFazenda = req.body.nomeServer;
 
-
-    if (RF == undefined) {
+    if (rf == undefined) {
         res.status(400).send("Seu RF está indefinido!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
-    } else if (email == undefined) {
-        res.status(400).send("seu email está indefinido");
-    } else if (nome == undefined) {
-        res.status(400).send("Seu nome está indefinido");
-    } else if (fkFazenda == undefined) {
-        res.status(400).send("Sua fkFazenda esta indefinida")
     } else {
-
-
-
-        usuarioModel.autenticar(RF, senha)
+        usuarioModel.autenticar(rf, senha)
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
@@ -31,11 +18,12 @@ function autenticar(req, res) {
 
 
                     res.json({
-                        RF: resultadoAutenticar[0].RF,
+                        rf: resultadoAutenticar[0].rf,
                         email: resultadoAutenticar[0].email,
                         nome: resultadoAutenticar[0].nome,
                         senha: resultadoAutenticar[0].senha,
                         fkFazenda: resultadoAutenticar[0].fkFazenda,
+                        fkFazenda: resultadoAutenticar[0].fkSuperUsuario,
                     });
                     if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
