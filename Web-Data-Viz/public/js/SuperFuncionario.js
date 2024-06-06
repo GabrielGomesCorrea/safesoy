@@ -135,7 +135,7 @@ function deletar(rf) {
         }).then(function (resposta) {
     
             if (resposta.ok) {
-                alert("Usuario do RF" + rf + " deletado com sucesso pelo " + sessionStorage.getItem("nome") + "!");
+                alert("Usuario do RF" + rf + " deletado com sucesso pelo " + sessionStorage.NOME_USUARIO + "!");
                 atualizarFeedFuncionarios()
                 atualizarFeedFazenda()
                 window.location.href ='SuperUsuario.html'
