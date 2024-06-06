@@ -65,13 +65,9 @@
         var senhaVar = input_senha.value;
 
         if (RFVar == "" || senhaVar == "") {
-
             alert('Preencha os campos em branco.');
-
         }
-
         else {
-
             fetch("/usuarios/autenticar", {
                 method: "POST",
                 headers: {
@@ -93,12 +89,16 @@
                         sessionStorage.RF_USUARIO = json.rf;
                         sessionStorage.NOME_USUARIO = json.nome;
                         sessionStorage.FK_FAZENDA = json.fkFazenda;
-                        sessionStorage.FK_SUPERUSUARIO = json.fkSuperUsuario;
+                        sessionStorage.FK_SUPERUSUARIO = json.fkSuperFuncionario;
 
-                        setTimeout(function () {
-                            window.location = "../dashboard.html";
-                        }, 1000); // apenas para exibir o loading
-
+                        if (json.fkSuperFuncionario == null) {
+                                alert(`Login Realizado com sucesso administrador!`);
+                                window.location = "SuperUsuario.html";
+                        }
+                        else {
+                                alert(`Login Realizado com sucesso funcionario!`);
+                                window.location = "../dashboard.html";
+                        }
                     });
 
                 } else {

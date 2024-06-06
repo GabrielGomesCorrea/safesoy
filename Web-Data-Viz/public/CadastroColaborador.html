@@ -40,7 +40,7 @@
           </div>
 
           <div class="inputbox5">
-            <input type="password" placeholder="Confirmar Senha" class="input" id="input_confirmacao">
+            <input type="password" placeholder="Confirmar Senha" class="input" id="input_ConfirmarSenha">
           </div>
         </div>
       </div>
@@ -74,6 +74,7 @@
     var senhaVar = input_senha.value;
     var confirmacaoSenhaVar = input_ConfirmarSenha.value;
     var fkFazenda = select_fazenda.value;
+    var admin = sessionStorage.getItem("RF_USUARIO");
 
     if (
       nomeVar == "" ||
@@ -93,7 +94,7 @@
     else {
 
       // Enviando o valor da nova input
-      fetch("/usuarios/cadastrar", {
+      fetch(`/usuarios/cadastrar/${admin}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -104,7 +105,7 @@
           nomeServer: nomeVar,
           emailServer: emailVar,
           senhaServer: senhaVar,
-          fkFazendaServer: fkFazenda
+          fkFazendaServer: fkFazenda,
         }),
       })
       

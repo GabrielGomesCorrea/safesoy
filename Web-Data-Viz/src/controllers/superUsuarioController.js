@@ -1,7 +1,8 @@
 var superUsuarioModel = require("../models/superUsuarioModel");
 
 function listarFazenda(req, res) {
-    superUsuarioModel.listarFazenda().then(function (resultado) {
+    var fkFazenda = req.params.fkFazenda    
+    superUsuarioModel.listarFazenda(fkFazenda).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -15,8 +16,8 @@ function listarFazenda(req, res) {
 }
 
 function listarFuncionario(req, res) {
-    var superUsuario = req.params.rfFunc
-    superUsuarioModel.listarFuncionario(superUsuario).then(function (resultado) {
+    var superFuncFuncionarios = req.params.superFuncionarioFunc
+    superUsuarioModel.listarFuncionario(superFuncFuncionarios).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
