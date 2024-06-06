@@ -30,8 +30,8 @@ const serial = async (
             // altere!
             // Credenciais do banco de dados
             host: 'localhost',
-            user: 'root',
-            password: 'Ga986745#',
+            user: 'caio',
+            password: 'sptech',
             database: 'safesoy',
             port: 3306
         }
@@ -63,6 +63,7 @@ const serial = async (
         const valores = data.split(';');
         const dht11Umidade = parseFloat(valores[0]);
         const dht11Temperatura = parseFloat(valores[1]);
+        var setor = 1;
         // const lm35Temperatura = parseFloat(valores[2]);
         // const luminosidade = parseFloat(valores[3]);
         // const chave = parseInt(valores[4]);
@@ -80,11 +81,11 @@ const serial = async (
             // altere!
             // Este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
-                'INSERT INTO dados (temperatura, umidade) VALUES (?, ?)',
-                [dht11Temperatura, dht11Umidade]
+                'INSERT INTO dados (temperatura, umidade, fkSetor) VALUES (?, ?, ?)',
+                [dht11Temperatura, dht11Umidade, setor]
             );
-            console.log("valores inseridos no banco: ", dht11Temperatura + ", " + dht11Umidade)
-        
+            console.log("valores inseridos no banco: ", dht11Temperatura + ", " + dht11Umidade + ", " + setor);
+
         }
         
     });
