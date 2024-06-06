@@ -3,21 +3,11 @@
 function atualizarFeedFazenda() {
 
     nome_user.innerHTML = sessionStorage.NOME_USUARIO;
-    fetch("/superUsuario/listarFazenda").then(function (resposta) {
+    var fkFazenda = sessionStorage.getItem("FK_FAZENDA") 
+    fetch(`/superUsuario/listarFazenda/${fkFazenda}`).then(function (resposta) {
         if (resposta.ok) {
             resposta.json().then(function (resposta) {
                 console.log("Dados recebidos: ", JSON.stringify(resposta));
-
-                // quando tiver o login, tem que comparar os valores da sessionStorage
-                let nome = "joao"
-                let rf = '1'
-                let fkFazenda = "1"
-                let fkSuperUsuario = "null"
-
-                sessionStorage.setItem("nome", nome)
-                sessionStorage.setItem("rf", rf)
-                sessionStorage.setItem("fkFazenda", fkFazenda)
-                sessionStorage.setItem("fkSuperUsuario", fkSuperUsuario)
 
                 var painelPai = document.getElementById("painel_pai");
                 var painelFilho = document.createElement("div");
@@ -25,7 +15,7 @@ function atualizarFeedFazenda() {
                 var conteudoPainel = document.createElement("div");
 
                 for (let i = 0; i < resposta.length; i++) {
-                    if (resposta[i].idFazenda == sessionStorage.getItem("fkFazenda")) {
+                    if (resposta[i].idFazenda == sessionStorage.getItem("FK_FAZENDA")) {
                         var respostasBD = resposta[i];
                         break
                     }
@@ -38,7 +28,7 @@ function atualizarFeedFazenda() {
                     var tipoFunc = document.createElement("h1")
 
                     tituloDoPainel.innerHTML = respostasBD.nome;
-                    qtdPainel.innerHTML = respostasBD.QtdFunc;
+                    qtdPainel.innerHTML = respostasBD.QtdFunc - 1;
                     tipoFunc.innerHTML = "Funcionarios";
 
                     painelPai.className = "paiPainel";
@@ -71,10 +61,10 @@ function atualizarFeedFazenda() {
 }
 
 // Função para atualizar a lista de funcionarios presentes dentro de uma fazenda 
-var rfFunc = sessionStorage.getItem("rf")
+var superFuncionarioFunc = sessionStorage.getItem("RF_USUARIO")
 
 function atualizarFeedFuncionarios() {
-    fetch(`/superUsuario/listarFuncionario/${rfFunc}`).then(function (resposta) {
+    fetch(`/superUsuario/listarFuncionario/${superFuncionarioFunc}`).then(function (resposta) {
         if (resposta.ok) {
             resposta.json().then(function (resposta) {
                 console.log("Dados recebidos: ", JSON.stringify(resposta));
@@ -145,7 +135,7 @@ function deletar(rf) {
         }).then(function (resposta) {
     
             if (resposta.ok) {
-                alert("Usuario do RF" + rf + " deletado com sucesso pelo " + sessionStorage.getItem("nome") + "!");
+                alert("Usuario do RF" + rf + " deletado com sucesso pelo " + sessionStorage.NOME_USUARIO + "!");
                 atualizarFeedFuncionarios()
                 atualizarFeedFazenda()
                 window.location.href ='SuperUsuario.html'

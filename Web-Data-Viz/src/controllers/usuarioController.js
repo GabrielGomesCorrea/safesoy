@@ -15,15 +15,12 @@ function autenticar(req, res) {
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
-
-
                     res.json({
                         rf: resultadoAutenticar[0].rf,
-                        email: resultadoAutenticar[0].email,
                         nome: resultadoAutenticar[0].nome,
                         senha: resultadoAutenticar[0].senha,
                         fkFazenda: resultadoAutenticar[0].fkFazenda,
-                        fkFazenda: resultadoAutenticar[0].fkSuperUsuario,
+                        fkSuperFuncionario: resultadoAutenticar[0].fkSuperFuncionario,
                     });
                     if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
@@ -47,8 +44,8 @@ function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    // var empresaId = req.body.empresaServer;
-
+    var fkFazenda = req.body.fkFazendaServer;
+    var admin = req.params.admin
     // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
@@ -56,14 +53,12 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
+    } else if (fkFazenda == undefined){
+        res.status(400).send("Sua senha está undefined!");
     }
-    // else if (empresaId == undefined) {
-    //     res.status(400).send("Sua empresa está undefined!");
-    // } 
     else {
-
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha)
+        usuarioModel.cadastrar(nome, email, senha, fkFazenda, admin)
             .then(
                 function (resultado) {
                     res.json(resultado);
