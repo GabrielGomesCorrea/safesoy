@@ -19,7 +19,8 @@ function dados(dadosFazenda) {
     var instrucaoSql =
         `SELECT d.temperatura, d.umidade, date_format(TIME(d.dtRegistrada), '%h:%i') as Tempo, d.fkSetor FROM dados as d JOIN setor as s
 	                ON d.fkSetor = s.idSetor
-		            WHERE s.idSetor = ${dadosFazenda};`;
+		            WHERE s.idSetor = 1
+                        ORDER BY d.dtRegistrada DESC;`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
