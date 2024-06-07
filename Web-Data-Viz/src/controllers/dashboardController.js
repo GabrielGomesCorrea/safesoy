@@ -32,12 +32,9 @@ function dados(req, res) {
 }
 
 function countCritico(req, res) {
-    dashboardModel.countCritico().then(function (resultado) {
-        if (resultado.length > 0) {
+    var criticoSetores = req.params.fkFazenda
+    dashboardModel.countCritico(criticoSetores).then(function (resultado) {
             res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
     }).catch(function (erro) {
         console.log(erro);
         console.log("Houve um erro ao buscar o historico: ", erro.sqlMessage);
@@ -45,7 +42,8 @@ function countCritico(req, res) {
     });
 }
 function tempCritico(req, res) {
-    dashboardModel.tempCritico().then(function (resultado) {
+    var criticoTemperatura = req.params.fkFazenda
+    dashboardModel.tempCritico(criticoTemperatura).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -59,7 +57,8 @@ function tempCritico(req, res) {
 }
 
 function umidCritico(req, res) {
-    dashboardModel.umidCritico().then(function (resultado) {
+    var criticoUmidade = req.params.fkFazenda
+    dashboardModel.umidCritico(criticoUmidade).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
