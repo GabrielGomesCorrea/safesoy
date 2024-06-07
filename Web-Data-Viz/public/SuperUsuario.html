@@ -7,6 +7,7 @@
     <title>Administrador</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/SuperUsuario.css">
+    <script src="js/dashboard.js"></script>
 </head>
 
 <body>
@@ -120,67 +121,5 @@
     </div>
 
 </body>
-<<<<<<< HEAD
 
 </html>
-
-<script>
-    function atualizarFeed() {
-        fetch("/dashboard/historico").then(function (resposta) {
-            if (resposta.ok) {
-                resposta.json().then(function (resposta) {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-
-                    var lista = document.getElementById("lista_pai");
-                    var lista_legenda = document.getElementById("lista_legenda")
-                    var historicoButton = document.getElementById("botaoHistorico")
-
-                    for (let i = 0; i < resposta.length; i++) {
-                        var respostasBD = resposta[i];
-
-                        // criando e manipulando elementos do HTML via JavaScript
-                        var secao = document.createElement("div");
-                        var data = document.createElement("h3");
-                        var numero = document.createElement("h3");
-                        var graus = document.createElement("h3");
-                        var porcentagem = document.createElement("h3");
-
-                        data.innerHTML = respostasBD.DataAtual;
-                        numero.innerHTML = respostasBD.idSetor;
-                        graus.innerHTML = respostasBD.temperatura;
-                        porcentagem.innerHTML = respostasBD.umidade;
-
-                        secao.className = "secao";
-                        data.className = "dt";
-                        numero.className = "num";
-                        graus.className = "graus";
-                        porcentagem.className = "porc";
-
-                        lista.appendChild(secao)
-                        secao.appendChild(data);
-                        secao.appendChild(numero);
-                        secao.appendChild(graus);
-                        secao.appendChild(porcentagem);
-
-                        lista.insertBefore(secao, historicoButton);
-                    }
-                });
-            } else {
-                throw ('Houve um erro na API!');
-            }
-        }).catch(function (resposta) {
-            console.error(resposta);
-        });
-    }
-</script>
-=======
-<script>
-    function suporte(){
-        window.location = "bobia.html"
-    }
-    function home(){
-        window.location = "index.html"
-    }
-</script>
-</html>
->>>>>>> f7903519fdfe188523d3718ae2b4fa43db75e6ff
