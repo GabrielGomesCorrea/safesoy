@@ -14,10 +14,10 @@ function historico(req, res) {
     });
 }
 
-function temperatura(req, res) {
-
-    var fkFazenda = req.params.fkFazenda;
-    dashboardModel.temperatura(fkFazenda).then(function (resultado) {
+function dados(req, res) {
+    var dadosFazenda = req.params.fkFazenda;
+    
+    dashboardModel.dados(dadosFazenda).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -73,7 +73,7 @@ function umidCritico(req, res) {
 
 module.exports = {
     historico,
-    temperatura,
+    dados,
     countCritico,
     tempCritico,
     umidCritico

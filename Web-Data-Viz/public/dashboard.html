@@ -64,12 +64,7 @@
         </div>
     </main>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-
-</html>
-
 <script>
     function home() {
         window.location = "index.html"
@@ -77,6 +72,7 @@
 
     nome_user.innerHTML = sessionStorage.NOME_USUARIO;
 
+    // Função de atualizar o historico da tabela dados
     function atualizarFeed() {
         fetch("/dashboard/historico").then(function (resposta) {
             if (resposta.ok) {
@@ -157,7 +153,7 @@
             })
     }
 
-    setInterval(function () { cardCount() }, 10000);
+    // setInterval(function () { cardCount() }, 10000);
     // CARD DO MEIO - FIM --------------------------------------------------------------------
 
     // CARD DA ESQUERDA --------------------------------------------------------------------
@@ -192,7 +188,7 @@
             })
     }
 
-    setInterval(function () { temp() }, 10000);
+    // setInterval(function () { temp() }, 10000);
     // CARD DA ESQUERDA - FIM --------------------------------------------------------------------
 
     // CARD DA DIREITA --------------------------------------------------------------------
@@ -227,9 +223,8 @@
             })
     }
 
-    setInterval(function () { umid() }, 10000);
+    // setInterval(function () { umid() }, 10000);
     // CARD DA DIREITA - FIM --------------------------------------------------------------------
 
 
 </script>
->>>>>>> e3859ec9694087c0726e9f9611043e9ffb890943

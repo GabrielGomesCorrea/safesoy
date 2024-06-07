@@ -7,8 +7,8 @@ router.get("/historico", function (req, res) {
     dashboardController.historico(req, res);
 });
 
-router.get("/temperatura/:fkFazenda", function (req, res) {
-    dashboardController.temperatura(req, res);
+router.get("/dados/:fkFazenda", function (req, res) {
+    dashboardController.dados(req, res);
 });
 router.get("/countCritico", function (req, res) {
     dashboardController.countCritico(req, res);
