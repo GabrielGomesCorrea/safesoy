@@ -87,7 +87,7 @@
                         sessionStorage.FK_FAZENDA = json.fkFazenda;
                         sessionStorage.FK_SUPERUSUARIO = json.fkSuperFuncionario;
 
-                        if (sessionStorage.FK_SUPERUSUARIO == null) {
+                        if (sessionStorage.FK_SUPERUSUARIO == "null") {
                                 alert(`Login Realizado com sucesso administrador!`);
                                 window.location = "SuperUsuario.html";
                         }

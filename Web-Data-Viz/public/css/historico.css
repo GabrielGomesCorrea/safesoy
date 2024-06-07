@@ -29,6 +29,7 @@
 }
 .logo{
     width: 190px;
+    margin-left: 100px;
 }
 .navbar button{
     background-color: #8DB600;
@@ -90,10 +91,10 @@
     background-color: #efeeee;
 }
 .dt{
-    margin-left: 100px;
+    margin-left: 130px;
 }
 .num{
-    margin-left: 240px;
+    margin-left: 290px;
 }
 .graus{
     margin-left: 290px;
