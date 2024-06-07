@@ -38,7 +38,10 @@
     }
 
     function atualizarFeed() {
-        fetch("/dashboard/historico").then(function (resposta) {
+
+        var fkFazenda = sessionStorage.FK_FAZENDA;
+
+        fetch(`/dashboard/historico/${fkFazenda}`).then(function (resposta) {
             if (resposta.ok) {
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
@@ -58,8 +61,8 @@
 
                         data.innerHTML =   respostasBD.DataAtual;
                         numero.innerHTML = respostasBD.idSetor;
-                        graus.innerHTML = respostasBD.temperatura;
-                        porcentagem.innerHTML = respostasBD.umidade;
+                        graus.innerHTML = respostasBD.tempMaxima;
+                        porcentagem.innerHTML = respostasBD.umidMax;
 
                         secao.className = "secao";
                         data.className = "dt";

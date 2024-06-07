@@ -1,14 +1,14 @@
 var database = require("../database/config");
 
-function historico() {
-    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+function historico(fkFazenda) {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarHistoricoDashboard()");
     var instrucaoSql =
-        `SELECT d.temperatura, d.umidade, date_format(DATE(d.dtRegistrada), '%d/%m/%y') as DataAtual, s.idSetor, f.nome as NomeFazenda FROM dados as d JOIN setor as s 	
+        `SELECT max(d.temperatura) as tempMaxima, max(d.umidade) as umidMax, date_format(DATE(d.dtRegistrada), '%d/%m/%y') as DataAtual, s.idSetor, f.nome as NomeFazenda FROM dados as d JOIN setor as s 	
                         ON d.fkSetor = s.idSetor
                             JOIN fazenda as f
                                 ON s.fkFazenda = f.idFazenda
-                                    WHERE idFazenda = 1
-                                        ORDER BY dtRegistrada`;
+                                    WHERE idFazenda = ${fkFazenda}
+                                        GROUP BY DataAtual, s.idSetor;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -17,9 +17,9 @@ function historico() {
 function dados(dadosFazenda) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function dadosFazenda()");
     var instrucaoSql =
-        `SELECT d.temperatura, d.umidade, date_format(TIME(d.dtRegistrada), '%h:%i') as Tempo, d.fkSetor FROM dados as d JOIN fazenda as f
-	                ON d.fkFazenda = f.idFazenda
-		            WHERE d.fkFazenda = ${dadosFazenda};`;
+        `SELECT d.temperatura, d.umidade, date_format(TIME(d.dtRegistrada), '%h:%i') as Tempo, d.fkSetor FROM dados as d JOIN setor as s
+	                ON d.fkSetor = s.idSetor
+		            WHERE s.idSetor = ${dadosFazenda};`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }

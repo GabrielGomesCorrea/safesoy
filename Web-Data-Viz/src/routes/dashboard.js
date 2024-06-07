@@ -3,7 +3,7 @@ var router = express.Router();
 
 var dashboardController = require("../controllers/dashboardController.js");
 
-router.get("/historico", function (req, res) {
+router.get("/historico/:fkFazenda", function (req, res) {
     dashboardController.historico(req, res);
 });
 

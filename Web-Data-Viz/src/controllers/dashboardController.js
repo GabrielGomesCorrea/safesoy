@@ -1,7 +1,8 @@
 var dashboardModel = require("../models/dashboardModel");
 
 function historico(req, res) {
-    dashboardModel.historico().then(function (resultado) {
+    var fkFazenda = req.params.fkFazenda;
+    dashboardModel.historico(fkFazenda).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
