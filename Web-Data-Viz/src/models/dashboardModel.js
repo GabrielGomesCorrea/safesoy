@@ -13,6 +13,7 @@ function historico() {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+<<<<<<< HEAD
 
 function temperatura(fkFazenda) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
@@ -20,11 +21,47 @@ function temperatura(fkFazenda) {
                     `SELECT d.temperatura, date_format(TIME(d.dtRegistrada), '%h:%i') as Tempo, d.fkSetor FROM dados as d JOIN fazenda as f
 	                ON d.fkFazenda = f.idFazenda
 		            WHERE d.fkFazenda = ${fkFazenda};`;
+=======
+function countCritico() {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucaoSql = 
+                    `select distinct(fkSetor) as setoresRisco from dados 
+                        join setor on fkSetor = idSetor
+                            where umidade >= 90.00 or umidade <= 65.00 or temperatura >= 35.00 or temperatura <= 10.00  AND fkFazenda = 1 and dtRegistrada = date(now());`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function tempCritico() {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucaoSql = 
+                    `select max(temperatura) as tempRisco from dados 
+                        join setor on fkSetor = idSetor
+                            where temperatura >= 35.00 or temperatura <= 10.00 AND fkFazenda = 1 and dtRegistrada = date(now());`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function umidCritico() {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucaoSql = 
+                    `select max(umidade) as umidRisco from dados 
+                        join setor on fkSetor = idSetor
+                            where umidade >= 90.00 or umidade <= 65.00 AND fkFazenda = 1 and dtRegistrada = date(now());`;
+>>>>>>> e3859ec9694087c0726e9f9611043e9ffb890943
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 module.exports = {
     historico,
+<<<<<<< HEAD
     temperatura
+=======
+    countCritico,
+    tempCritico,
+    umidCritico
+>>>>>>> e3859ec9694087c0726e9f9611043e9ffb890943
 }

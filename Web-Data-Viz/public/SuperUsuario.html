@@ -7,10 +7,14 @@
     <title>Administrador</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/SuperUsuario.css">
+<<<<<<< HEAD
     <script src="js/dashboard.js"></script>
+=======
+    <script src="js/SuperFuncionario.js"></script>
+>>>>>>> e3859ec9694087c0726e9f9611043e9ffb890943
 </head>
 
-<body>
+<body onload="atualizarFeedFazenda(), atualizarFeedFuncionarios()">
 
     <!-- Header -->
     <div class="background">
@@ -18,108 +22,42 @@
             <div class="navbar">
                 <div class="espaco"></div>
                 <img onclick="home()" src="src/img/Logo.svg" alt="" class="logo">
-                <img src="src/img/vector.svg" alt="" class="user">
+                <button onclick="window.location.href='CadastroColaborador.html'" class="botao-colaborador">Cadastrar Colaborador</button>
+                <!-- <img src="src/img/vector.svg" alt="" class="user"> -->
             </div>
         </header>
         <div class="mensagem">
             <div class="bloco1">
-                <h1 class="msg">Seja bem vindo de volta, João!</h1>
+                <h1 class="msg">Seja bem vindo de volta, <span id="nome_user"></span>!</h1>
                 <h3 class="texto">O que deseja fazer hoje?</h3>
-                <button>Acessar a dashboard</button>
+                <button onclick="">Acessar a dashboard</button>
             </div>
         </div>
     </div>
 
-    <div class="paipainel">
-        <div class="painel">
-            <div class="titulopainel">
-                <h1>Fazenda Amaguí</h1>
-            </div>
-            <div class="conteudopainel">
-                <h1 class="quatro">4</h1>
-                <h1 class="funcionario">Funcionarios</h1>
-            </div>
-        </div>
-    </div>
+    <div class="paipainel" id="painel_pai"></div>
 
-    <div class="paipainel2">
-        <div class="painel2">
+    <div class="paipainel2" id="paipainel2">
+        <div class="painel2" id="painelfilho2">
             <div class="titulospainel2">
                 <h1>Nome</h1>
-                <h1>Tipo</h1>
                 <h1>Editar</h1>
             </div>
-            <div class="conteudopainel2">
-                <div class="pessoa">
-                    <div class="funcionario">
-                        <img class="profile" src="src/img/profile.svg" alt="Vetor profile">
-                        <div class="nome">
-                            <h1>João Silva</h1>
-                            <h1>1010</h1>
-                        </div>
-                    </div>
-                    <div class="cargo">
-                        <h1>Administrador</h1>
-                    </div>
-                    <div class="dots">
-                        <img src="src/img/dots.svg" alt="dots">
-                    </div>
-                </div>
-                <div class="pessoa">
-                    <div class="funcionario">
-                        <img class="profile" src="src/img/profile.svg" alt="Vetor profile">
-                        <div class="nome">
-                            <h1>Maria Santos</h1>
-                            <h1>1011</h1>
-                        </div>
-                    </div>
-                    <div class="cargo">
-                        <h1>Funcionario</h1>
-                    </div>
-                    <div class="dots">
-                        <img src="src/img/dots.svg" alt="dots">
-                    </div>
-                </div>
-                <div class="pessoa">
-                    <div class="funcionario">
-                        <img class="profile" src="src/img/profile.svg" alt="Vetor profile">
-                        <div class="nome">
-                            <h1>Valter Costa</h1>
-                            <h1>1012</h1>
-                        </div>
-                    </div>
-                    <div class="cargo">
-                        <h1>Funcionario</h1>
-                    </div>
-                    <div class="dots">
-                        <img src="src/img/dots.svg" alt="dots">
-                    </div>
-                </div>
-                <div class="pessoa">
-                    <div class="funcionario">
-                        <img class="profile" src="src/img/profile.svg" alt="Vetor profile">
-                        <div class="nome">
-                            <h1>Pedro Oliveira</h1>
-                            <h1>1013</h1>
-                        </div>
-                    </div>
-                    <div class="cargo">
-                        <h1>Funcionario</h1>
-                    </div>
-                    <div class="dots">
-                        <img src="src/img/dots.svg" alt="dots">
-                    </div>
-                </div>
+            <div class="conteudopainel2" id="conteudopainel_2">
             </div>
         </div>
-        <button onclick="window.location.href = 'bobia.html'"></button>
     </div>
+
+
     <div class="footer">
         <h1 class="titulo"><b>Problemas com os sensores?</b></h1>
         <h2 class="titulo2">Acesse o nosso suporte de inteligência artificial!</h2>
-        <button onclick="suporte()">Clique aqui</button>
+        <button onclick="window.location.href='bobia.html'">Clique aqui</button>
     </div>
 
 </body>
+<<<<<<< HEAD
 
+=======
+>>>>>>> e3859ec9694087c0726e9f9611043e9ffb890943
 </html>

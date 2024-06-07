@@ -29,23 +29,23 @@
     <main>
         <div class="alertas">
             <div class="alerts">
-                <div class="temperatura">
+                <div id="div_temperatura"   class="temperatura">
                     <img src="src/img/temp.png" alt="" class="temp">
                     <p class="txt">Temperatura Crítica</p>
-                    <p class="txt">34ºC</p>
+                    <p id="texto_temp" class="txt"></p>
                 </div>
-                <div class="setores">
+                <div id="div_setores" class="setores">
                     <div class="set">
                         <img src="src/img/Vector (1).png" alt="" class="sensor">
                         <p class="txt">Setores Irregulares</p>
-                        <p class="txt">2</p>
+                        <p id="texto_count" class="txt"></p>
                     </div>
                     <button class="botao"><a href="#criticos">Ver Detalhes</a></button>
                 </div>
-                <div class="umidade">
+                <div id="div_umidade" class="umidade">
                     <img src="src/img/umid.png" alt="" class="umid">
                     <p class="txt">Umidade Crítica</p>
-                    <p class="txt">8%</p>
+                    <p id="texto_umid" class="txt"></p>
                 </div>
             </div>
         </div>
@@ -64,4 +64,172 @@
         </div>
     </main>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+
+</html>
+
+<script>
+    function home() {
+        window.location = "index.html"
+    }
+
+    nome_user.innerHTML = sessionStorage.NOME_USUARIO;
+
+    function atualizarFeed() {
+        fetch("/dashboard/historico").then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var lista = document.getElementById("lista_pai");
+                    var lista_legenda = document.getElementById("lista_legenda")
+                    var historicoButton = document.getElementById("botaoHistorico")
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        var respostasBD = resposta[i];
+
+                        // criando e manipulando elementos do HTML via JavaScript
+                        var secao = document.createElement("div");
+                        var data = document.createElement("h3");
+                        var numero = document.createElement("h3");
+                        var graus = document.createElement("h3");
+                        var porcentagem = document.createElement("h3");
+
+                        data.innerHTML = respostasBD.DataAtual;
+                        numero.innerHTML = respostasBD.idSetor;
+                        graus.innerHTML = respostasBD.temperatura;
+                        porcentagem.innerHTML = respostasBD.umidade;
+
+                        secao.className = "secao";
+                        data.className = "dt";
+                        numero.className = "num";
+                        graus.className = "graus";
+                        porcentagem.className = "porc";
+
+                        lista.appendChild(secao)
+                        secao.appendChild(data);
+                        secao.appendChild(numero);
+                        secao.appendChild(graus);
+                        secao.appendChild(porcentagem);
+
+                        lista.insertBefore(secao, historicoButton);
+                    }
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
+
+    // CARD DO MEIO --------------------------------------------------------------------
+    function cardCount() {
+
+        fetch("/dashboard/countCritico", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then(function (resposta) {
+                console.log("Estou no then do countCritico")
+                console.log(resposta)
+                console.log(resposta.status)
+
+                if (resposta.ok) {
+
+                    resposta.json().then(function (resposta) {
+
+                        console.log(resposta)
+                        var dados = Number(resposta[0].setoresRisco);
+                        if (dados == false){
+                            div_setores.style="background-color: green;";
+                            texto_count.innerHTML = `Nenhum`;
+                        } else {
+                            texto_count.innerHTML = `${dados}`;
+                        }
+                    })
+
+                }
+            })
+    }
+
+    setInterval(function () { cardCount() }, 10000);
+    // CARD DO MEIO - FIM --------------------------------------------------------------------
+
+    // CARD DA ESQUERDA --------------------------------------------------------------------
+    function temp() {
+
+        fetch("/dashboard/tempCritico", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then(function (resposta) {
+                console.log("Estou no then do tempCritico")
+                console.log(resposta)
+                console.log(resposta.status)
+
+                if (resposta.ok) {
+
+                    resposta.json().then(function (resposta) {
+
+                        console.log(resposta)
+                        var dados = Number(resposta[0].tempRisco);
+                        if (dados == false){
+                            div_temperatura.style="background-color: green;"
+                            texto_temp.innerHTML = `Nenhum`;
+                        } else {
+                            texto_temp.innerHTML = `${dados}C°`;
+                        }
+                    })
+
+                }
+            })
+    }
+
+    setInterval(function () { temp() }, 10000);
+    // CARD DA ESQUERDA - FIM --------------------------------------------------------------------
+
+    // CARD DA DIREITA --------------------------------------------------------------------
+    function umid() {
+
+        fetch("/dashboard/umidCritico", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then(function (resposta) {
+                console.log("Estou no then do umidCritico")
+                console.log(resposta)
+                console.log(resposta.status)
+
+                if (resposta.ok) {
+
+                    resposta.json().then(function (resposta) {
+
+                        console.log(resposta)
+                        var dados = Number(resposta[0].umidRisco);
+                        if (dados == false){
+                            div_umidade.style="background-color: green;";
+                            texto_umid.innerHTML = `Nenhum`;
+                        } else {
+                        texto_umid.innerHTML = `${dados}%`;
+                        }
+                    })
+
+                }
+            })
+    }
+
+    setInterval(function () { umid() }, 10000);
+    // CARD DA DIREITA - FIM --------------------------------------------------------------------
+
+
+</script>
+>>>>>>> e3859ec9694087c0726e9f9611043e9ffb890943
