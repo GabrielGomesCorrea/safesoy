@@ -70,18 +70,20 @@ function plotarGrafico(resposta) {
   const ctx = document.getElementById('myChart');
 
   Grafico = new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
       labels: lista_hora,
       datasets: [{
-        label: 'Temperatura',
+        label: 'Temperatura ºC',
         data: lista_temperatura,
-        borderWidth: 1
+        borderWidth: 1,
+        backgroundColor: '#ff0000'
       },
       {
-        label: 'Umidade',
+        label: 'Umidade %',
         data: lista_umidade,
-        borderWidth: 1
+        borderWidth: 1,
+        backgroundColor: '#000DFF'
       }],
 
     },

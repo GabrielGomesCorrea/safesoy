@@ -1,0 +1,45 @@
+@font-face {
+    font-family: Jakarts;
+    src: url(../src/font/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf);
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Jakarts;
+}
+.tudo{
+    width: 100%;
+    height: 95vh;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.grafico{
+    width: 900px;
+}
+.setor{
+    border: #DFC900 solid 10px;
+    border-radius: 20px;
+    padding: 20px;
+}
+.div_botao{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    height: 60px;
+}
+.div_botao button{
+    background-color: #DFC900;
+    border-radius: 5px;
+    padding: 10px 40px;
+    border-width: 1px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.div_botao button:hover{
+    background-color: #d3be00;
+}

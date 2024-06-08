@@ -6,10 +6,19 @@
     <title>Gráficos</title>
     <script src="js/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/graficos.css">
 </head>
 <body onload="obterDadosGrafico()">
-    <div>
-        <canvas id="myChart"></canvas>
+    <div class="tudo">
+        <div class="setor">
+            <h1>Monitoramento Setor:</h1>
+            <div class="grafico">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="div_botao">
+                <button onclick="window.location='/dashboard.html'">Voltar</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>
