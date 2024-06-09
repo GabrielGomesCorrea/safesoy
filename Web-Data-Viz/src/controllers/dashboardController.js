@@ -14,6 +14,20 @@ function historico(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
+function setor(req, res) {
+    var fkSetor = req.params.fkSetor;
+    dashboardModel.setor(fkSetor).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar o setor: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 
 function dados(req, res) {
     var dadosFazenda = req.params.fkFazenda;
@@ -73,6 +87,7 @@ function umidCritico(req, res) {
 
 module.exports = {
     historico,
+    setor,
     dados,
     countCritico,
     tempCritico,
