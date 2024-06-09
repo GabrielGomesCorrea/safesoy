@@ -106,6 +106,17 @@
                         graus.className = "graus";
                         porcentagem.className = "porc";
 
+                        secao.onclick = function() {
+                            var fkSetor = sessionStorage.FK_SETOR;
+
+                            fetch(`/dashboard/setor/${fkSetor}`).then(function (reposta){
+                                console.log('fkSetor recebido: ', JSON.stringify(resposta));
+                                window.location = "/graficos.html";
+                            }).catch(function (resposta){
+                                console.erro(resposta);
+                            });
+                        };
+
                         lista.appendChild(secao)
                         secao.appendChild(data);
                         secao.appendChild(numero);

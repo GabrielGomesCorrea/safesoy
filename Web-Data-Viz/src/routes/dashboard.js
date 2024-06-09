@@ -6,6 +6,9 @@ var dashboardController = require("../controllers/dashboardController.js");
 router.get("/historico/:fkFazenda", function (req, res) {
     dashboardController.historico(req, res);
 });
+router.get("/setor/:fkSetor", function (req, res) {
+    dashboardController.setor(req, res);
+});
 
 router.get("/dados/:fkFazenda", function (req, res) {
     dashboardController.dados(req, res);
