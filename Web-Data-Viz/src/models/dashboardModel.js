@@ -13,22 +13,12 @@ function historico(fkFazenda) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
-
-function setor(fkSetor) {
-    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarHistoricoDashboard()");
-    var instrucaoSql =
-        ``;
-
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
-
-function dados(dadosFazenda) {
+function dados(fkSetor) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function dadosFazenda()");
     var instrucaoSql =
         `SELECT d.temperatura, d.umidade, date_format(TIME(d.dtRegistrada), '%h:%i') as Tempo, d.fkSetor FROM dados as d JOIN setor as s
 	                ON d.fkSetor = s.idSetor
-		            WHERE s.idSetor = 1
+		            WHERE s.idSetor = ${fkSetor}
                         ORDER BY d.dtRegistrada DESC;`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -37,8 +27,8 @@ function countCritico(criticoSetores) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucaoSql =
         `SELECT COALESCE(
-        (SELECT DISTINCT fkSetor FROM dados JOIN setor ON fkSetor = idSetor
-        WHERE (umidade >= 90.00 OR umidade <= 65.00 OR temperatura >= 35.00 OR temperatura <= 10.00) AND fkFazenda = ${criticoSetores} AND dtRegistrada = DATE(NOW())), 
+        (SELECT COUNT(DISTINCT (fkSetor)) FROM dados JOIN setor ON fkSetor = idSetor
+        WHERE (umidade >= 90.00 OR umidade <= 65.00 OR temperatura >= 35.00 OR temperatura <= 10.00) AND fkFazenda = ${criticoSetores}), 
 		NULL) AS fkSetor;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -68,7 +58,6 @@ function umidCritico(criticoUmidade) {
 }
 module.exports = {
     historico,
-    setor,
     dados,
     countCritico,
     tempCritico,

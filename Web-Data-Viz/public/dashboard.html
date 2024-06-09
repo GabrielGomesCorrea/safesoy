@@ -29,7 +29,7 @@
     <main>
         <div class="alertas">
             <div class="alerts">
-                <div id="div_temperatura"   class="temperatura">
+                <div id="div_temperatura" class="temperatura">
                     <img src="src/img/temp.png" alt="" class="temp">
                     <p class="txt">Temperatura Crítica</p>
                     <p id="texto_temp" class="txt"></p>
@@ -64,6 +64,7 @@
         </div>
     </main>
 </body>
+
 </html>
 <script>
     function home() {
@@ -106,15 +107,10 @@
                         graus.className = "graus";
                         porcentagem.className = "porc";
 
-                        secao.onclick = function() {
+                        secao.onclick = function () {
+                            var setor = 2
+                            sessionStorage.setItem('FK_SETOR', setor)
                             var fkSetor = sessionStorage.FK_SETOR;
-
-                            fetch(`/dashboard/setor/${fkSetor}`).then(function (reposta){
-                                console.log('fkSetor recebido: ', JSON.stringify(resposta));
-                                window.location = "/graficos.html";
-                            }).catch(function (resposta){
-                                console.erro(resposta);
-                            });
                         };
 
                         lista.appendChild(secao)
@@ -133,7 +129,7 @@
             console.error(resposta);
         });
     }
-    
+
     // CARD DO MEIO --------------------------------------------------------------------
     function cardCount() {
         var fkFazenda = sessionStorage.FK_FAZENDA;
@@ -152,11 +148,11 @@
                 if (resposta.ok) {
                     resposta.json().then(function (resposta) {
                         console.log(resposta)
-                        
+
                         var dados = resposta[0].fkSetor;
-                        
-                        if (dados == null){
-                            div_set.style.backgroundColor="green";
+
+                        if (dados == null) {
+                            div_set.style.backgroundColor = "green";
                             texto_count.innerHTML = `Nenhum`;
                         } else {
                             texto_count.innerHTML = `${dados}`;
@@ -191,8 +187,8 @@
 
                         console.log(resposta)
                         var dados = Number(resposta[0].tempRisco);
-                        if (dados == false){
-                            div_temperatura.style.backgroundColor="green"
+                        if (dados == false) {
+                            div_temperatura.style.backgroundColor = "green"
                             texto_temp.innerHTML = `Nenhum`;
                         } else {
                             texto_temp.innerHTML = `${dados}C°`;
@@ -227,11 +223,11 @@
 
                         console.log(resposta)
                         var dados = Number(resposta[0].umidRisco);
-                        if (dados == false){
-                            div_umidade.style.backgroundColor="green";
+                        if (dados == false) {
+                            div_umidade.style.backgroundColor = "green";
                             texto_umid.innerHTML = `Nenhum`;
                         } else {
-                        texto_umid.innerHTML = `${dados}%`;
+                            texto_umid.innerHTML = `${dados}%`;
                         }
                     })
 

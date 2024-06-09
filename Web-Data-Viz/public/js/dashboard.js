@@ -1,12 +1,10 @@
 
 // SCRIPT PARA PODER PLOTAR OS GRAFICOS
 function obterDadosGrafico() {
+  
+  var fkSetor = sessionStorage.FK_SETOR;
 
-  var setor = 1
-  sessionStorage.setItem('FK_SETOR', setor)
-  var fkFazenda = sessionStorage.FK_SETOR;
-
-  fetch(`/dashboard/dados/${fkFazenda}`, { cache: 'no-store' }).then(function (response) {
+  fetch(`/dashboard/dados/${fkSetor}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
       response.json().then(function (resposta) {
         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
