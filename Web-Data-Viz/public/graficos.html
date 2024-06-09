@@ -11,7 +11,7 @@
 <body onload="obterDadosGrafico()">
     <div class="tudo">
         <div class="setor">
-            <h1>Monitoramento Setor:</h1>
+            <h1>Monitoramento Setor: <span id="num_setor"></span></h1>
             <div class="grafico">
                 <canvas id="myChart"></canvas>
             </div>
@@ -23,3 +23,7 @@
 </body>
 </html>
 
+
+<script>
+    num_setor.innerHTML = sessionStorage.getItem('FK_SETOR');
+</script>

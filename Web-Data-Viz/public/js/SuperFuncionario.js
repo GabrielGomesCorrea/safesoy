@@ -77,7 +77,8 @@ function atualizarFeedFuncionarios() {
                 for (var index = 0; index < resposta.length; index++) {
                     var resultadoBD = resposta[index]
                     var pessoa = document.createElement("div")
-                    var infoFunc = document.createElement("div")
+                    var infoFuncNome = document.createElement("div")
+                    var infoFuncRf = document.createElement("div")
                     var nomeFunc = document.createElement("h1")
                     var rfFunc = document.createElement("h1")
                     var divBotao = document.createElement("div")
@@ -92,7 +93,8 @@ function atualizarFeedFuncionarios() {
                     painelfilho2.className = "painel2";
                     conteudopainel2.className = "conteudopainel2";
                     pessoa.className = "pessoa";
-                    infoFunc.className = "nome";
+                    infoFuncNome.className = "nome";
+                    infoFuncRf.className = "rf";
                     divBotao.className = "dots";
                     botaoDots.className = "botaoDeletar"
 
@@ -102,9 +104,10 @@ function atualizarFeedFuncionarios() {
                     painelPai2.appendChild(painelfilho2)
                     painelfilho2.appendChild(conteudopainel2)
                     conteudopainel2.appendChild(pessoa)
-                    pessoa.appendChild(infoFunc)
-                    infoFunc.appendChild(nomeFunc)
-                    infoFunc.appendChild(rfFunc)
+                    pessoa.appendChild(infoFuncNome)
+                    pessoa.appendChild(infoFuncRf)
+                    infoFuncNome.appendChild(nomeFunc)
+                    infoFuncRf.appendChild(rfFunc)
                     pessoa.appendChild(divBotao)
                     divBotao.appendChild(botaoDots)
                 }
