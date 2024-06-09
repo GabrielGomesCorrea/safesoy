@@ -22,7 +22,7 @@
         <div class="mensagem">
             <div class="bloco1">
                 <h1 class="msg">Seja bem vindo de volta,<span id="nome_user"> </span></h1>
-                <h3 class="texto">Relatórios de monitoramento da data 29/04/2024</h3>
+                <h3 class="texto">Relatórios de monitoramento</h3>
             </div>
         </div>
     </div>
@@ -111,6 +111,8 @@
                             var setor = 2
                             sessionStorage.setItem('FK_SETOR', setor)
                             var fkSetor = sessionStorage.FK_SETOR;
+
+                            window.location.href = `graficos.html`;
                         };
 
                         lista.appendChild(secao)
