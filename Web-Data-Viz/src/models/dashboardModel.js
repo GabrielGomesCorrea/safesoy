@@ -28,7 +28,7 @@ function countCritico(criticoSetores) {
     var instrucaoSql =
         `SELECT COALESCE(
         (SELECT count(DISTINCT(fkSetor)) FROM dados JOIN setor ON fkSetor = idSetor
-        WHERE (umidade >= 90.00 OR umidade <= 65.00 OR temperatura >= 35.00 OR temperatura <= 10.00) AND fkFazenda = ${criticoSetores} AND dtRegistrada = DATE(NOW())), 
+        WHERE (umidade >= 90.00 OR umidade <= 65.00 OR temperatura >= 35.00 OR temperatura <= 10.00) AND fkFazenda = ${criticoSetores}), 
 		NULL) AS fkSetor;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
