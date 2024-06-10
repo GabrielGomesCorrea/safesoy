@@ -41,6 +41,27 @@
     justify-content: center;
     height: 450px;
 }
+.botao-colaborador{
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
+    color: #9CBC2F;
+
+    border: none;
+    border-radius: 44px;
+    font-size: 17px;
+    transition: 400ms;
+
+    margin-right: 20px;
+    cursor: pointer;
+}
+.botao-colaborador:hover{
+    background-color: rgb(221, 221, 221);
+
+    border: none;
+    border-radius: 44px;
+    font-size: 17px;
+}
 .bloco1{
     margin: 40px;
 }

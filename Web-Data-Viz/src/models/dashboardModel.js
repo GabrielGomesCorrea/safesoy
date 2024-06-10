@@ -27,8 +27,8 @@ function countCritico(criticoSetores) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucaoSql =
         `SELECT COALESCE(
-        (SELECT COUNT(DISTINCT (fkSetor)) FROM dados JOIN setor ON fkSetor = idSetor
-        WHERE (umidade >= 90.00 OR umidade <= 65.00 OR temperatura >= 35.00 OR temperatura <= 10.00) AND fkFazenda = ${criticoSetores}), 
+        (SELECT count(DISTINCT(fkSetor)) FROM dados JOIN setor ON fkSetor = idSetor
+        WHERE (umidade >= 90.00 OR umidade <= 65.00 OR temperatura >= 35.00 OR temperatura <= 10.00) AND fkFazenda = ${criticoSetores} AND dtRegistrada = DATE(NOW())), 
 		NULL) AS fkSetor;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
